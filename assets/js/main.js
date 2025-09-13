@@ -1,47 +1,41 @@
 // Poetry Website - Dynamic Search for ALL Poems
-let allPoems = [];
-
-// CLEAN THEME TOGGLE - WORKING PERFECTLY
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
     initThemeToggle();
     initMobileMenu();
     initSearch();
     initGenreFilters();
-    initAutoImages();
 });
 
-// Theme Toggle - Clean Implementation
+// Global variable to store all poems data
+let allPoems = [];
+
+// Theme Toggle Functionality
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
-    
+
     if (!themeToggle) return;
-    
-    // Get saved theme or default to light
+
+    // Check for saved theme preference or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
-    
+
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     });
-    
+
     function setTheme(theme) {
-        // Set theme attribute
         document.documentElement.setAttribute('data-theme', theme);
-        
-        // Update icon
         if (themeIcon) {
-            themeIcon.textContent = theme === 'dark' ? 'â˜€ï¸' : 'ðŸŒ™';
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
-        
-        console.log('Theme set to:', theme);
     }
 }
-
 
 // Mobile Menu Functionality
 function initMobileMenu() {
@@ -417,32 +411,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const heroElements = document.querySelectorAll('.auto-image-hero[data-image]');
-    
-    heroElements.forEach(hero => {
-        const imageName = hero.getAttribute('data-image');
-        if (imageName && imageName.trim() !== '') {
-            const baseUrl = getBaseUrl();
-            const imagePath = baseUrl + '/assets/images/backgrounds/' + imageName;
-            
-            // Test if image exists
-            const img = new Image();
-            img.onload = function() {
-                console.log('âœ… Image loaded successfully:', imagePath);
-                hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('${imagePath}')`;
-                hero.classList.add('has-background-image');
-            };
-            img.onerror = function() {
-                console.log('âŒ Image not found:', imagePath);
-                hero.style.background = 'linear-gradient(135deg, var(--secondary-color), var(--primary-color))';
-                hero.classList.add('no-background-image');
-            };
-            img.src = imagePath;
-        }
     });
 });
 
