@@ -472,4 +472,47 @@ mark {
     color: #fff;
 }
 `;
-document.head.appendChild(searchStyle);
+document.head.appendChild(searchStyle);document.addEventListener('DOMContentLoaded', function() {
+    const poemTexts = document.querySelectorAll('.poem-text');
+    
+    poemTexts.forEach(poemText => {
+        let content = poemText.innerHTML;
+        
+        // Check if content contains Bengali characters and | symbols
+        const hasBengali = /[\u0980-\u09FF]/.test(content);
+        const hasPipeSymbol = content.includes('|');
+        
+        if (hasBengali && hasPipeSymbol) {
+            // Add Bengali class for styling
+            poemText.classList.add('bengali');
+            
+            // Convert | to line breaks in Bengali poems
+            content = content.replace(/\s*\|\s*/g, '<br>');
+            poemText.innerHTML = content;
+            
+            console.log('Applied Bengali formatting to poem');
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const poemTexts = document.querySelectorAll('.poem-text');
+    
+    poemTexts.forEach(poemText => {
+        let content = poemText.innerHTML;
+        
+        // Check if content contains Bengali characters and | symbols
+        const hasBengali = /[\u0980-\u09FF]/.test(content);
+        const hasPipeSymbol = content.includes('|');
+        
+        if (hasBengali && hasPipeSymbol) {
+            // Add Bengali class for styling
+            poemText.classList.add('bengali');
+            
+            // Convert | to line breaks in Bengali poems
+            content = content.replace(/\s*\|\s*/g, '<br>');
+            poemText.innerHTML = content;
+            
+            console.log('Applied Bengali formatting to poem');
+        }
+    });
+});
