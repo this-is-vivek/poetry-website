@@ -1,0 +1,3 @@
+<!-- Add this to your site header for favicon -->
+<!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
+<!-- Place favicon.ico file in your repository root -->

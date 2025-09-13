@@ -28,24 +28,19 @@ A beautiful Jekyll-powered poetry website similar to YourQuote, optimized for Gi
 ## 🚀 Quick Start
 
 ### 1. Setup Repository
-```bash
-# Create and clone your repository
-git clone https://github.com/YOUR-USERNAME/poetry-website.git
-cd poetry-website
-
-# Copy all files from this project
-# Update _config.yml with your details
-```
+1. Create a new GitHub repository named `poetry-website` (or your preferred name)
+2. Upload all files from this project to your repository
+3. Update `_config.yml` with your personal details
 
 ### 2. Configure Your Site
 Edit `_config.yml`:
 ```yaml
 title: Your Poetry Site Name
 subtitle: Your Tagline
-author: Your Name
+author: Your Name  
 email: your-email@example.com
-baseurl: "/your-repo-name"
-url: "https://your-username.github.io"
+baseurl: "" # Leave empty for username.github.io/repository-name
+url: "https://your-username.github.io" # Change to your GitHub username
 ```
 
 Update social links:
@@ -57,17 +52,17 @@ social:
 ```
 
 ### 3. Enable GitHub Pages
-1. Go to your repository Settings
-2. Navigate to Pages section
-3. Select "Deploy from a branch"
-4. Choose "gh-pages" branch (created automatically by GitHub Actions)
+1. Go to your repository Settings → Pages
+2. Select "Deploy from a branch" 
+3. Choose "gh-pages" branch (will be created automatically)
+4. Click Save
 
-### 4. Add Content
+### 4. Add Your Content
 
 #### Adding Poems
 Create files in the appropriate genre folders:
 
-**_poems/romance/my-poem.md**
+**Example: _poems/romance/my-poem.md**
 ```markdown
 ---
 layout: poem
@@ -85,7 +80,7 @@ Stanza by stanza
 ```
 
 #### Adding Books
-**_books/my-book.md**
+**Example: _books/my-book.md**
 ```markdown
 ---
 layout: book
@@ -106,7 +101,7 @@ Book content and excerpts here...
 
 ### 5. Add Images
 - **Author photo**: `assets/images/author/profile.jpg`
-- **Book covers**: `assets/images/books/book-cover.jpg`
+- **Book covers**: `assets/images/books/book-cover.jpg`  
 - **Poem backgrounds**: `assets/images/backgrounds/poem-bg.jpg`
 
 ## 📁 Project Structure
@@ -117,11 +112,12 @@ poetry-website/
 ├── _layouts/                   # Page templates
 │   ├── default.html           # Base layout
 │   ├── poem.html              # Individual poem layout
-│   └── book.html              # Book layout
+│   ├── book.html              # Book layout
+│   └── page.html              # Static page layout
 ├── _includes/                  # Reusable components
-│   ├── head.html              # HTML head section
 │   ├── header.html            # Site header
-│   └── footer.html            # Site footer
+│   ├── footer.html            # Site footer
+│   └── poem-card.html         # Poem card component
 ├── _poems/                     # Poem collections
 │   ├── romance/               # Romance poems
 │   ├── nature/                # Nature poems
@@ -142,6 +138,7 @@ poetry-website/
 ├── .github/workflows/          # GitHub Actions
 │   └── deploy.yml             # Auto-deployment
 ├── Gemfile                     # Ruby dependencies
+├── index.html                  # Homepage
 └── README.md                   # Documentation
 ```
 
@@ -150,13 +147,8 @@ poetry-website/
 ### Adding New Poems
 
 1. **Create poem file**:
-   ```bash
-   # Navigate to appropriate genre folder
-   cd _poems/romance/
-   
-   # Create new poem file
-   touch sunset-love.md
-   ```
+   - Navigate to appropriate genre folder (e.g., `_poems/romance/`)
+   - Create new `.md` file with descriptive name
 
 2. **Add front matter and content**:
    ```markdown
@@ -169,11 +161,9 @@ poetry-website/
    background_image: "sunset-love.jpg"
    tags: [sunset, love, golden, romantic]
    ---
-   
+
    Golden rays embrace the sky,
-   As we watch the day goodbye,
-   Hand in hand, heart to heart,
-   Love's masterpiece, a work of art.
+   As we watch the day goodbye...
    ```
 
 3. **Add background image** (optional):
@@ -189,26 +179,15 @@ poetry-website/
 
 5. **Site updates automatically** via GitHub Actions!
 
-### Image Handling Options
-
-**Option A - Manual Upload**:
-- Upload matching `.jpg` file with same name as poem
-- `sunset-love.md` + `sunset-love.jpg` = automatic pairing
-
-**Option B - Automatic Generation** (Advanced):
-- GitHub Actions can fetch relevant images from Unsplash API
-- Based on poem content and genre
-- Configure in `.github/workflows/images.yml`
-
 ## 🎨 Customization
 
 ### Colors and Typography
 Edit CSS custom properties in `assets/css/main.css`:
 ```css
 :root {
-  --color-primary: #2c3e50;
-  --color-secondary: #3498db;
-  --color-accent: #e74c3c;
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -216,10 +195,10 @@ Edit CSS custom properties in `assets/css/main.css`:
 
 ### Layout Modifications
 - Modify `_layouts/default.html` for site structure
-- Edit `_layouts/poem.html` for poem presentation
+- Edit `_layouts/poem.html` for poem presentation  
 - Update `_includes/header.html` for navigation
 
-### Genre Configuration
+### Adding New Genres
 Add new genres in `_config.yml`:
 ```yaml
 genres:
@@ -231,6 +210,8 @@ genres:
   - spiritual  # New genre
 ```
 
+Then create corresponding folders in `_poems/`.
+
 ## 📱 Mobile Experience
 
 The site is built mobile-first with:
@@ -238,24 +219,24 @@ The site is built mobile-first with:
 - Readable typography on small screens
 - Optimized image loading
 - Progressive Web App features
-- Offline reading capability (planned)
+- Responsive design for all devices
 
 ## 🔍 SEO & Analytics
 
 ### Built-in SEO Features
 - Meta tags and structured data
 - OpenGraph and Twitter Card support
-- XML sitemap generation
+- XML sitemap generation  
 - RSS feed for subscribers
 - Fast loading times
 
-### Analytics Setup
+### Analytics Setup (Optional)
 Add to `_config.yml`:
 ```yaml
 google_analytics: UA-XXXXXXXX-X
 ```
 
-### Comments Setup
+### Comments Setup (Optional)
 Add to `_config.yml`:
 ```yaml
 disqus:
@@ -267,11 +248,11 @@ disqus:
 ### Automatic Deployment
 - GitHub Actions builds and deploys on every push to main
 - No manual intervention required
-- SSL certificate automatically provided
+- SSL certificate automatically provided by GitHub Pages
 
 ### Custom Domain (Optional)
-1. Add `CNAME` file with your domain
-2. Configure DNS with your provider
+1. Add `CNAME` file to repository root with your domain name
+2. Configure DNS with your domain provider
 3. Enable "Enforce HTTPS" in repository settings
 
 ## 📊 Performance
@@ -283,8 +264,8 @@ disqus:
 - CDN delivery via GitHub Pages
 - Progressive enhancement
 
-### Lighthouse Scores
-- Performance: 95+
+### Expected Performance
+- Lighthouse Performance: 95+
 - Accessibility: 100
 - Best Practices: 100
 - SEO: 100
@@ -296,7 +277,7 @@ disqus:
 # Install dependencies
 bundle install
 
-# Serve locally
+# Serve locally with live reload
 bundle exec jekyll serve
 
 # Visit http://localhost:4000
@@ -309,18 +290,19 @@ bundle exec jekyll build
 
 ## 📝 Content Guidelines
 
-### Writing Poems
+### Writing Effective Poems
 - Use clear, evocative titles
 - Write compelling excerpts (1-2 sentences)
 - Choose relevant tags (3-5 per poem)
 - Consider reading flow and line breaks
-- Add publication dates
+- Include publication dates for organization
 
 ### Organizing Content
 - Group similar themes in same genre
 - Use consistent file naming (lowercase, hyphens)
 - Include variety in poem lengths
 - Balance content across genres
+- Add background images that complement the mood
 
 ## 🔧 Troubleshooting
 
@@ -334,17 +316,21 @@ bundle exec jekyll build
 **Images not showing?**
 - Check file paths in front matter
 - Ensure images are in correct folders
-- Verify image file extensions match
+- Verify image file extensions match references
 
 **Layout broken?**
-- Validate YAML front matter
-- Check for missing closing tags
+- Validate YAML front matter syntax
+- Check for missing closing tags in HTML
 - Ensure CSS files are properly linked
 
+**Search not working?**
+- Check that JavaScript is loading properly
+- Verify poem data structure in JS file
+
 ### Getting Help
-- Check Jekyll documentation
-- Review GitHub Pages documentation
-- Open issue in this repository
+- Review Jekyll documentation: https://jekyllrb.com/docs/
+- Check GitHub Pages documentation
+- Open issue in this repository for specific problems
 
 ## 📄 License
 
@@ -352,17 +338,38 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to:
+- Submit bug reports and feature requests
+- Improve documentation
+- Suggest enhancements
+- Share your customizations
 
 ## 💖 Acknowledgments
 
-- Inspired by YourQuote platform
-- Built with Jekyll and GitHub Pages
-- Typography by Google Fonts
+- Inspired by YourQuote platform design
+- Built with Jekyll and GitHub Pages  
+- Typography by Google Fonts (Playfair Display & Inter)
 - Icons from Unicode emoji set
+- Color palette inspired by modern poetry websites
 
 ---
 
 **Happy Writing! 🌟**
 
-Transform your poetry into a beautiful digital sanctuary that readers will love to explore.
+Transform your poetry into a beautiful digital sanctuary that readers will love to explore. This template provides everything you need to create a professional poetry website with minimal technical knowledge required.
+
+## Sample Content
+
+This template includes sample poems and books to demonstrate all features:
+
+### Sample Poems
+- **Romance**: "Hearts Entwined", "Sunset Romance"  
+- **Nature**: "Whispers of Dawn", "Forest Sanctuary"
+- **Philosophy**: "Reflections of Time", "The Meaning We Make"
+- **Stories**: "The Midnight Train"
+
+### Sample Books
+- **"Echoes of the Heart"**: A romantic poetry collection
+- **"Nature's Whispers"**: Poems from the natural world
+
+Replace the sample content with your own poems and books to make the site uniquely yours!

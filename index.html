@@ -1,206 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rivers of Words - Poetry • Stories • Reflections</title>
-    <meta name="description" content="A collection of heartfelt poetry and stories exploring love, nature, and the human experience">
-    <meta name="author" content="Alex Rivers">
-    <meta property="og:title" content="Rivers of Words">
-    <meta property="og:description" content="Poetry • Stories • Reflections">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1 class="site-title">Rivers of Words</h1>
-                    <p class="site-subtitle">Poetry • Stories • Reflections</p>
-                </div>
-                <nav class="main-nav">
-                    <button class="nav-btn active" data-section="home">Home</button>
-                    <button class="nav-btn" data-section="genres">Genres</button>
-                    <button class="nav-btn" data-section="books">Books</button>
-                    <button class="nav-btn" data-section="about">About</button>
-                </nav>
-                <div class="header-controls">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="theme-icon">🌙</span>
-                    </button>
-                    <button class="search-toggle" id="search-toggle" aria-label="Toggle search">
-                        <span class="search-icon">🔍</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+---
+layout: default
+---
 
-    <!-- Search Bar -->
-    <div class="search-bar hidden" id="search-bar">
-        <div class="container">
-            <div class="search-input-wrapper">
-                <input type="text" id="search-input" placeholder="Search poems by title, genre, or tags..." class="search-input">
-                <button class="search-clear" id="search-clear">✕</button>
+<section class="hero-section">
+    <div class="wrapper">
+        <h1 class="hero-title">{{ site.title }}</h1>
+        <p class="hero-subtitle">{{ site.description }}</p>
+        <div class="hero-actions">
+            <a href="#featured-poems" class="btn btn-primary">Explore Poetry</a>
+            <a href="{{ "/about/" | relative_url }}" class="btn btn-secondary">Meet the Author</a>
+        </div>
+    </div>
+</section>
+
+<section class="genre-nav">
+    <div class="wrapper">
+        <h2>Explore by Genre</h2>
+        <div class="genre-buttons">
+            <button class="genre-btn active" data-genre="all">All</button>
+            {% for genre in site.genres %}
+            <button class="genre-btn" data-genre="{{ genre }}">{{ genre | capitalize }}</button>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="poems-section" id="featured-poems">
+    <div class="wrapper">
+        <h2 class="section-title">Featured Poems</h2>
+
+        <div class="poems-grid">
+            {% assign sorted_poems = site.poems | sort: 'date' | reverse %}
+            {% for poem in sorted_poems limit: 6 %}
+            {% include poem-card.html poem=poem %}
+            {% endfor %}
+        </div>
+
+        <div class="text-center">
+            <a href="{{ "/genres/" | relative_url }}" class="btn btn-primary">View All Poems</a>
+        </div>
+    </div>
+</section>
+
+<section class="stats-section">
+    <div class="wrapper">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>{{ site.poems | size }}</h3>
+                <p>Poems Written</p>
+            </div>
+            <div class="stat-item">
+                <h3>{{ site.books | size }}</h3>
+                <p>Books Published</p>
+            </div>
+            <div class="stat-item">
+                <h3>{{ site.genres | size }}</h3>
+                <p>Genres Explored</p>
+            </div>
+            <div class="stat-item">
+                <h3>5+</h3>
+                <p>Years Writing</p>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Home Section -->
-        <section id="home-section" class="content-section active">
-            <!-- Hero Section -->
-            <div class="hero-section">
-                <div class="container">
-                    <div class="hero-content">
-                        <h2 class="hero-title">Welcome to Rivers of Words</h2>
-                        <p class="hero-description">Discover heartfelt poetry and stories that explore the depths of human experience, love, and nature's beauty.</p>
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <span class="stat-number" id="total-poems">0</span>
-                                <span class="stat-label">Poems</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number" id="total-genres">0</span>
-                                <span class="stat-label">Genres</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number" id="total-books">0</span>
-                                <span class="stat-label">Books</span>
-                            </div>
-                        </div>
+<section class="books-preview">
+    <div class="wrapper">
+        <h2 class="section-title">Published Collections</h2>
+        <div class="books-grid">
+            {% for book in site.books limit: 2 %}
+            <article class="book-card">
+                {% if book.cover_image %}
+                <div class="book-cover">
+                    <img src="{{ "/assets/images/books/" | append: book.cover_image | relative_url }}" 
+                         alt="{{ book.title }} cover"
+                         onerror="this.style.display='none'">
+                </div>
+                {% endif %}
+                <div class="book-info">
+                    <h3><a href="{{ book.url | relative_url }}">{{ book.title }}</a></h3>
+                    {% if book.subtitle %}
+                    <p class="book-subtitle">{{ book.subtitle }}</p>
+                    {% endif %}
+                    <p class="book-description">{{ book.description }}</p>
+                    <div class="book-meta">
+                        {% if book.pages %}
+                        <span class="pages">{{ book.pages }} pages</span>
+                        {% endif %}
+                        {% if book.publish_date %}
+                        <time class="publish-date">{{ book.publish_date | date: "%B %Y" }}</time>
+                        {% endif %}
                     </div>
-                </div>
-            </div>
-
-            <!-- Featured Poems -->
-            <div class="featured-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h3 class="section-title">Featured Poems</h3>
-                        <div class="genre-tabs" id="genre-tabs">
-                            <button class="genre-tab active" data-genre="all">All</button>
-                        </div>
+                    {% if book.purchase_links %}
+                    <div class="purchase-links">
+                        {% if book.purchase_links.amazon %}
+                        <a href="{{ book.purchase_links.amazon }}" class="btn btn-primary" target="_blank" rel="noopener">
+                            Buy on Amazon
+                        </a>
+                        {% endif %}
                     </div>
-                    <div class="poems-grid" id="poems-grid">
-                        <!-- Poems will be populated by JavaScript -->
-                    </div>
+                    {% endif %}
                 </div>
-            </div>
-
-            <!-- Recent Additions -->
-            <div class="recent-section">
-                <div class="container">
-                    <h3 class="section-title">Recent Additions</h3>
-                    <div class="recent-poems" id="recent-poems">
-                        <!-- Recent poems will be populated by JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Genres Section -->
-        <section id="genres-section" class="content-section">
-            <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">Explore by Genre</h2>
-                    <p class="page-description">Browse poems organized by theme and emotion</p>
-                </div>
-                <div class="genres-grid" id="genres-grid">
-                    <!-- Genres will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Books Section -->
-        <section id="books-section" class="content-section">
-            <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">Published Books</h2>
-                    <p class="page-description">Explore collections of poetry and stories</p>
-                </div>
-                <div class="books-grid" id="books-grid">
-                    <!-- Books will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about-section" class="content-section">
-            <div class="container">
-                <div class="about-content">
-                    <div class="author-profile">
-                        <div class="author-avatar">
-                            <div class="avatar-placeholder">AR</div>
-                        </div>
-                        <div class="author-info">
-                            <h2 class="author-name" id="author-name"></h2>
-                            <p class="author-bio" id="author-bio"></p>
-                            <div class="social-links" id="social-links">
-                                <!-- Social links will be populated by JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="writing-journey">
-                        <h3>Writing Journey</h3>
-                        <p id="writing-journey-text"></p>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>Have a question or want to connect? I'd love to hear from you.</p>
-                        <div class="newsletter-signup">
-                            <h4>Subscribe to Updates</h4>
-                            <form class="newsletter-form">
-                                <input type="email" placeholder="Enter your email" class="form-control">
-                                <button type="submit" class="btn btn--primary">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Poem Modal -->
-    <div class="modal hidden" id="poem-modal">
-        <div class="modal-backdrop" id="modal-backdrop"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="modal-close" id="modal-close">✕</button>
-            </div>
-            <div class="poem-content" id="modal-poem-content">
-                <!-- Poem content will be populated by JavaScript -->
-            </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{{ "/books/" | relative_url }}" class="btn btn-primary">View All Books</a>
         </div>
     </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Rivers of Words</h3>
-                    <p>Poetry • Stories • Reflections</p>
-                </div>
-                <div class="footer-nav">
-                    <a href="#" data-section="home">Home</a>
-                    <a href="#" data-section="genres">Genres</a>
-                    <a href="#" data-section="books">Books</a>
-                    <a href="#" data-section="about">About</a>
-                </div>
-                <div class="footer-social">
-                    <p>&copy; 2025 Alex Rivers. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+<style>
+.hero-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    <script src="app.js"></script>
-</body>
-</html>
+.stats-section {
+    background-color: var(--surface-color);
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.books-preview {
+    padding: 3rem 0;
+}
+</style>

@@ -1,0 +1,188 @@
+---
+layout: page
+title: Books
+permalink: /books/
+---
+
+<div class="page-header">
+    <div class="wrapper">
+        <h1>Published Collections</h1>
+        <p>Explore my published poetry books and upcoming releases</p>
+    </div>
+</div>
+
+<div class="books-content">
+    <div class="wrapper">
+        <div class="books-grid">
+            {% for book in site.books %}
+            <article class="book-card">
+                {% if book.cover_image %}
+                <div class="book-cover">
+                    <img src="{{ "/assets/images/books/" | append: book.cover_image | relative_url }}" 
+                         alt="{{ book.title }} cover"
+                         onerror="this.style.display='none'">
+                </div>
+                {% endif %}
+                <div class="book-info">
+                    <h2><a href="{{ book.url | relative_url }}">{{ book.title }}</a></h2>
+                    {% if book.subtitle %}
+                    <p class="book-subtitle">{{ book.subtitle }}</p>
+                    {% endif %}
+                    <p class="book-description">{{ book.description }}</p>
+                    <div class="book-meta">
+                        {% if book.pages %}
+                        <span class="pages">{{ book.pages }} pages</span>
+                        {% endif %}
+                        {% if book.isbn %}
+                        <span class="isbn">ISBN: {{ book.isbn }}</span>
+                        {% endif %}
+                        {% if book.publish_date %}
+                        <time class="publish-date">Published {{ book.publish_date | date: "%B %Y" }}</time>
+                        {% endif %}
+                    </div>
+                    {% if book.purchase_links %}
+                    <div class="purchase-links">
+                        {% if book.purchase_links.amazon %}
+                        <a href="{{ book.purchase_links.amazon }}" class="btn btn-primary" target="_blank" rel="noopener">
+                            Buy on Amazon
+                        </a>
+                        {% endif %}
+                        {% if book.purchase_links.local %}
+                        <a href="{{ book.purchase_links.local }}" class="btn btn-secondary" target="_blank" rel="noopener">
+                            Local Bookstore
+                        </a>
+                        {% endif %}
+                        <a href="{{ book.url | relative_url }}" class="btn btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        {% if site.books.size == 0 %}
+        <div class="empty-state">
+            <h3>Books coming soon</h3>
+            <p>I'm currently working on new poetry collections. Check back soon for updates!</p>
+        </div>
+        {% endif %}
+
+        <section class="upcoming-section">
+            <h2>Upcoming Releases</h2>
+            <div class="upcoming-grid">
+                <div class="upcoming-item">
+                    <h3>Seasons of Change</h3>
+                    <p>A new collection exploring transitions and transformations in life. Expected release: Spring 2026.</p>
+                    <div class="progress-note">
+                        <strong>Status:</strong> Currently in draft phase
+                    </div>
+                </div>
+                <div class="upcoming-item">
+                    <h3>Urban Verses</h3>
+                    <p>Poetry inspired by city life, community, and the beauty found in metropolitan moments. Expected release: Fall 2026.</p>
+                    <div class="progress-note">
+                        <strong>Status:</strong> Collecting inspiration
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-signup">
+            <h2>Stay Updated</h2>
+            <p>Be the first to know about new book releases, poetry readings, and special announcements.</p>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <p class="newsletter-note">No spam, just poetry updates. Unsubscribe anytime.</p>
+        </section>
+    </div>
+</div>
+
+<style>
+.upcoming-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.upcoming-item {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.upcoming-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.progress-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.newsletter-signup {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.newsletter-signup h2,
+.newsletter-signup p {
+    color: white;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.newsletter-form .btn {
+    white-space: nowrap;
+}
+
+.newsletter-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter-form input {
+        min-width: auto;
+    }
+}
+</style>

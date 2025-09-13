@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<article class="book-page">
+    <header class="book-hero">
+        <div class="book-header">
+            {% if page.cover_image %}
+            <div class="book-cover">
+                <img src="{{ "/assets/images/books/" | append: page.cover_image | relative_url }}" 
+                     alt="{{ page.title }} book cover">
+            </div>
+            {% endif %}
+            <div class="book-info">
+                <h1 class="book-title">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="book-subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+                <div class="book-meta">
+                    {% if page.pages %}
+                    <span class="pages">{{ page.pages }} pages</span>
+                    {% endif %}
+                    {% if page.isbn %}
+                    <span class="isbn">ISBN: {{ page.isbn }}</span>
+                    {% endif %}
+                    {% if page.publish_date %}
+                    <time class="publish-date">Published {{ page.publish_date | date: "%B %Y" }}</time>
+                    {% endif %}
+                </div>
+                {% if page.description %}
+                <p class="book-description">{{ page.description }}</p>
+                {% endif %}
+
+                {% if page.purchase_links %}
+                <div class="purchase-links">
+                    {% if page.purchase_links.amazon %}
+                    <a href="{{ page.purchase_links.amazon }}" class="btn btn-primary" target="_blank" rel="noopener">
+                        Buy on Amazon
+                    </a>
+                    {% endif %}
+                    {% if page.purchase_links.local %}
+                    <a href="{{ page.purchase_links.local }}" class="btn btn-secondary" target="_blank" rel="noopener">
+                        Local Bookstore
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <div class="book-content">
+        {{ content }}
+    </div>
+</article>

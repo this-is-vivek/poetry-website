@@ -1,0 +1,21 @@
+<article class="poem-card" data-genre="{{ include.poem.genre }}">
+    <div class="poem-card-content">
+        <h3 class="poem-card-title">
+            <a href="{{ include.poem.url | relative_url }}">{{ include.poem.title }}</a>
+        </h3>
+        {% if include.poem.excerpt %}
+        <p class="poem-card-excerpt">{{ include.poem.excerpt }}</p>
+        {% endif %}
+        <div class="poem-card-meta">
+            <span class="genre">{{ include.poem.genre | capitalize }}</span>
+            <time class="date">{{ include.poem.date | date: "%b %d, %Y" }}</time>
+        </div>
+        {% if include.poem.tags %}
+        <div class="poem-card-tags">
+            {% for tag in include.poem.tags limit:3 %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</article>
