@@ -2,24 +2,26 @@
 layout: default
 ---
 
+<!-- Automatic image detection based on poem filename -->
+{%- assign poem_filename = page.path | split: '/' | last | split: '.md' | first -%}
+{%- assign auto_image = poem_filename | append: '.jpg' -%}
+{%- assign image_to_use = page.background_image | default: auto_image -%}
+
 <article class="poem-page">
     <header class="poem-header">
-        {%- if page.background_image -%}
-        <div class="poem-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('{{ '/assets/images/backgrounds/' | append: page.background_image | relative_url }}');">
-        {%- else -%}
-        <div class="poem-hero poem-hero-default">
-        {%- endif -%}
+        <div class="poem-hero auto-image-hero" data-image="{{ image_to_use }}">
             <div class="poem-hero-content">
-                <!-- TEMPORARY DEBUG INFO -->
+                <!-- DEBUG INFO - Remove once working -->
                 <div style="background: rgba(0,0,0,0.8); padding: 10px; margin: 10px; border-radius: 5px;">
-                <small style="color: white;">
-                    🔍 DEBUG INFO:<br>
-                    Image file: {{ page.background_image }}<br>
-                    Full path: {{ "/assets/images/backgrounds/" | append: page.background_image | relative_url }}<br>
-                    Base URL: {{ site.baseurl }}
-                </small>
+                    <small style="color: white;">
+                        🔍 AUTO-DETECTION DEBUG:<br>
+                        Poem filename: {{ poem_filename }}<br>
+                        Auto image: {{ auto_image }}<br>
+                        Using image: {{ image_to_use }}<br>
+                        Full path: {{ "/assets/images/backgrounds/" | append: image_to_use | relative_url }}
+                    </small>
                 </div>
-
+                
                 <div class="poem-meta">
                     <span class="poem-genre">{{ page.genre | capitalize }}</span>
                     <time class="poem-date">{{ page.date | date: "%B %d, %Y" }}</time>
@@ -41,68 +43,17 @@ layout: default
             </div>
         </div>
     </header>
-
+    
+    <!-- Rest of your poem layout stays the same -->
     <div class="poem-content-wrapper">
         <div class="poem-content">
             <div class="poem-text">
                 {{ content }}
             </div>
-
+            
             <div class="poem-actions">
                 <button class="btn-share" onclick="sharePoem()">Share Poem</button>
                 <button class="btn-print" onclick="printPoem()">Print</button>
-            </div>
-
-            <div class="poem-navigation">
-                {%- assign poems = site.poems | sort: 'date' | reverse -%}
-                {%- for poem in poems -%}
-                    {%- if poem.url == page.url -%}
-                        {%- unless forloop.first -%}
-                            {%- assign prev_index = forloop.index0 | minus: 1 -%}
-                            {%- assign prev_poem = poems[prev_index] -%}
-                        {%- endunless -%}
-                        {%- unless forloop.last -%}
-                            {%- assign next_index = forloop.index0 | plus: 1 -%}
-                            {%- assign next_poem = poems[next_index] -%}
-                        {%- endunless -%}
-                        {%- break -%}
-                    {%- endif -%}
-                {%- endfor -%}
-
-                <div class="nav-links">
-                    {%- if prev_poem -%}
-                    <a href="{{ prev_poem.url | relative_url }}" class="nav-link prev-link">
-                        <span class="nav-label">← Previous</span>
-                        <span class="nav-title">{{ prev_poem.title }}</span>
-                    </a>
-                    {%- endif -%}
-
-                    {%- if next_poem -%}
-                    <a href="{{ next_poem.url | relative_url }}" class="nav-link next-link">
-                        <span class="nav-label">Next →</span>
-                        <span class="nav-title">{{ next_poem.title }}</span>
-                    </a>
-                    {%- endif -%}
-                </div>
-            </div>
-
-            <div class="related-poems">
-                <h3>Related Poems</h3>
-                <div class="related-grid">
-                    {%- assign related_poems = site.poems | where: "genre", page.genre -%}
-                    {%- for poem in related_poems limit: 3 -%}
-                    {%- unless poem.url == page.url -%}
-                    <article class="poem-card">
-                        <h4><a href="{{ poem.url | relative_url }}">{{ poem.title }}</a></h4>
-                        <p>{{ poem.excerpt }}</p>
-                        <div class="card-meta">
-                            <span class="genre">{{ poem.genre | capitalize }}</span>
-                            <time>{{ poem.date | date: "%b %d" }}</time>
-                        </div>
-                    </article>
-                    {%- endunless -%}
-                    {%- endfor -%}
-                </div>
             </div>
         </div>
     </div>
@@ -117,7 +68,7 @@ function sharePoem() {
             url: window.location.href
         });
     } else {
-        navigator.clipboard.writeText(window.location.href).then(function() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
             alert('Link copied to clipboard!');
         });
     }

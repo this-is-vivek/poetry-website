@@ -413,6 +413,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const heroElements = document.querySelectorAll('.auto-image-hero[data-image]');
+    
+    heroElements.forEach(hero => {
+        const imageName = hero.getAttribute('data-image');
+        if (imageName && imageName.trim() !== '') {
+            const baseUrl = getBaseUrl();
+            const imagePath = baseUrl + '/assets/images/backgrounds/' + imageName;
+            
+            // Test if image exists
+            const img = new Image();
+            img.onload = function() {
+                console.log('✅ Image loaded successfully:', imagePath);
+                hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('${imagePath}')`;
+                hero.classList.add('has-background-image');
+            };
+            img.onerror = function() {
+                console.log('❌ Image not found:', imagePath);
+                hero.style.background = 'linear-gradient(135deg, var(--secondary-color), var(--primary-color))';
+                hero.classList.add('no-background-image');
+            };
+            img.src = imagePath;
+        }
+    });
+});
+
 // Add search result styling
 const searchStyle = document.createElement('style');
 searchStyle.textContent = `
