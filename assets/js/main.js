@@ -11,45 +11,106 @@ document.addEventListener('DOMContentLoaded', function() {
 let allPoems = [];
 
 // Theme Toggle Functionality
+// NUCLEAR JAVASCRIPT FIX - Replace your theme toggle completely
+
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
     
     if (!themeToggle) return;
     
-    // Check for saved theme preference or default to light
+    // Get saved theme or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
+    applyThemeNuclear(savedTheme);
     
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
+        applyThemeNuclear(newTheme);
         localStorage.setItem('theme', newTheme);
     });
     
-    function setTheme(theme) {
-        // Set theme on BOTH html and body elements
+    function applyThemeNuclear(theme) {
+        console.log('NUCLEAR: Applying theme:', theme);
+        
+        // Set theme attribute on EVERYTHING
         document.documentElement.setAttribute('data-theme', theme);
         document.body.setAttribute('data-theme', theme);
+        document.querySelector('html').setAttribute('data-theme', theme);
         
         // Update icon
         if (themeIcon) {
             themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
         
-        // Force background color update
+        // NUCLEAR: Force styles directly
         if (theme === 'dark') {
+            // Force dark mode
+            document.documentElement.style.backgroundColor = '#0f172a';
+            document.documentElement.style.color = '#f8fafc';
             document.body.style.backgroundColor = '#0f172a';
             document.body.style.color = '#f8fafc';
+            
+            // Force all major containers
+            const containers = document.querySelectorAll('main, .wrapper, .site-content, .section, .poems-section, .books-preview');
+            containers.forEach(container => {
+                container.style.backgroundColor = '#0f172a';
+                container.style.color = '#f8fafc';
+            });
+            
         } else {
+            // Force light mode
+            document.documentElement.style.backgroundColor = '#ffffff';
+            document.documentElement.style.color = '#0f172a';
             document.body.style.backgroundColor = '#ffffff';
             document.body.style.color = '#0f172a';
+            
+            // Reset containers
+            const containers = document.querySelectorAll('main, .wrapper, .site-content, .section, .poems-section, .books-preview');
+            containers.forEach(container => {
+                container.style.backgroundColor = '#ffffff';
+                container.style.color = '#0f172a';
+            });
         }
         
-        console.log('Theme set to:', theme);
+        console.log('NUCLEAR: Theme applied successfully');
     }
 }
+
+// NUCLEAR: Force theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const theme = localStorage.getItem('theme') || 'light';
+    console.log('NUCLEAR: Page loaded, forcing theme:', theme);
+    
+    setTimeout(() => {
+        applyThemeNuclear(theme);
+    }, 100);
+    
+    // Also force it again after a short delay
+    setTimeout(() => {
+        console.log('NUCLEAR: Double-checking theme application');
+        applyThemeNuclear(theme);
+    }, 500);
+});
+
+// NUCLEAR: Global function to apply theme
+function applyThemeNuclear(theme) {
+    console.log('NUCLEAR: Applying theme:', theme);
+    
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    
+    if (theme === 'dark') {
+        document.documentElement.style.backgroundColor = '#0f172a';
+        document.body.style.backgroundColor = '#0f172a';
+        document.body.style.color = '#f8fafc';
+    } else {
+        document.documentElement.style.backgroundColor = '#ffffff';  
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#0f172a';
+    }
+}
+
 
 
 // Mobile Menu Functionality

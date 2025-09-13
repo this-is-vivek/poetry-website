@@ -1,6 +1,94 @@
 /* FORCE PROPER BACKGROUNDS FOR BOTH THEMES */
 
 /* Light theme background (default) */
+/* ==========================================================================
+   NUCLEAR DARK MODE FIX - MAXIMUM PRIORITY
+   ========================================================================== */
+
+/* FORCE DARK MODE BACKGROUND - MAXIMUM PRIORITY */
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+body[data-theme="dark"],
+[data-theme="dark"] html,
+[data-theme="dark"] body,
+[data-theme="dark"] {
+  background-color: #0f172a !important;
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* FORCE LIGHT MODE BACKGROUND */
+html:not([data-theme="dark"]),
+html:not([data-theme="dark"]) body,
+body:not([data-theme="dark"]),
+:not([data-theme="dark"]) html,
+:not([data-theme="dark"]) body {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* FORCE ALL CONTAINERS IN DARK MODE */
+[data-theme="dark"] .wrapper,
+[data-theme="dark"] .site-content,
+[data-theme="dark"] main,
+[data-theme="dark"] .section,
+[data-theme="dark"] .poems-section,
+[data-theme="dark"] .books-preview,
+[data-theme="dark"] .poem-content-wrapper,
+[data-theme="dark"] article,
+[data-theme="dark"] div:not(.poem-card):not(.book-card):not(.search-result) {
+  background-color: #0f172a !important;
+  background: #0f172a !important;
+}
+
+/* FORCE DARK MODE CARDS */
+[data-theme="dark"] .poem-card,
+[data-theme="dark"] .book-card {
+  background-color: #1e293b !important;
+  background: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+/* FORCE DARK MODE SECTIONS */
+[data-theme="dark"] .stats-section,
+[data-theme="dark"] .genre-nav {
+  background-color: #1e293b !important;
+  background: #1e293b !important;
+}
+
+/* FORCE DARK MODE HEADER */
+[data-theme="dark"] .site-header {
+  background-color: #1e293b !important;
+  background: #1e293b !important;
+}
+
+/* FORCE ALL TEXT IN DARK MODE */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] span:not(.genre),
+[data-theme="dark"] div,
+[data-theme="dark"] li,
+[data-theme="dark"] a {
+  color: #f8fafc !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 html,
 body {
   background-color: var(--color-bg-primary) !important;
