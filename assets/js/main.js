@@ -35,7 +35,7 @@ function initThemeToggle() {
         
         // Update icon
         if (themeIcon) {
-            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            themeIcon.textContent = theme === 'dark' ? 'â˜€ï¸' : 'ðŸŒ™';
         }
         
         console.log('Theme set to:', theme);
@@ -432,12 +432,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Test if image exists
             const img = new Image();
             img.onload = function() {
-                console.log('✅ Image loaded successfully:', imagePath);
+                console.log('âœ… Image loaded successfully:', imagePath);
                 hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('${imagePath}')`;
                 hero.classList.add('has-background-image');
             };
             img.onerror = function() {
-                console.log('❌ Image not found:', imagePath);
+                console.log('âŒ Image not found:', imagePath);
                 hero.style.background = 'linear-gradient(135deg, var(--secondary-color), var(--primary-color))';
                 hero.classList.add('no-background-image');
             };
