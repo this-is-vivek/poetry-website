@@ -24,6 +24,21 @@ body {
   background-color: transparent;
 }
 
+/* TEMPORARY DEBUG CSS - Remove after fixing */
+
+/* Force body background in dark mode */
+[data-theme="dark"] {
+  background: #0f172a !important;
+}
+
+[data-theme="dark"] body {
+  background: #0f172a !important;
+}
+
+[data-theme="dark"] html {
+  background: #0f172a !important;
+}
+
 /* Ensure all main containers inherit proper background */
 main,
 .site-content,
