@@ -1,134 +1,62 @@
----
-# This ensures Jekyll processes this file
----
+/* FORCE PROPER BACKGROUNDS FOR BOTH THEMES */
 
-/* ==========================================================================
-   POETRY WEBSITE - COMPLETE MAIN.CSS WITH PROPER THEMING
-   ========================================================================== */
-
-/* BASE LIGHT THEME COLORS (Default) */
-:root {
-  /* Light Theme Colors */
-  --color-primary: #0f172a;           /* Very dark slate */
-  --color-secondary: #1e40af;         /* Strong blue */
-  --color-accent: #dc2626;            /* Strong red */
-  
-  /* Text Colors - MUCH DARKER for light theme */
-  --color-text-primary: #0f172a;      /* Almost black */
-  --color-text-secondary: #334155;    /* Dark gray */
-  --color-text-muted: #64748b;        /* Medium gray */
-  --color-text-inverse: #ffffff;      /* White */
-  
-  /* Background Colors */
-  --color-bg-primary: #ffffff;        /* Pure white */
-  --color-bg-secondary: #f8fafc;      /* Very light gray */
-  --color-bg-tertiary: #f1f5f9;       /* Light gray */
-  
-  /* Border and Surface */
-  --color-border: #e2e8f0;           /* Light border */
-  --color-surface: #ffffff;           /* Card backgrounds */
-  --color-surface-hover: #f8fafc;     /* Hover states */
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  
-  /* Typography */
-  --font-family-display: 'Playfair Display', serif;
-  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  /* Spacing and Layout */
-  --border-radius: 0.5rem;
-  --border-radius-lg: 0.75rem;
-  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* DARK THEME COLORS */
-[data-theme="dark"] {
-  /* Dark Theme Colors */
-  --color-primary: #f8fafc;           /* Light text */
-  --color-secondary: #3b82f6;         /* Bright blue */
-  --color-accent: #ef4444;            /* Bright red */
-  
-  /* Text Colors for dark theme */
-  --color-text-primary: #f8fafc;      /* Light gray */
-  --color-text-secondary: #cbd5e1;    /* Medium light gray */
-  --color-text-muted: #94a3b8;        /* Muted light gray */
-  --color-text-inverse: #0f172a;      /* Dark */
-  
-  /* Background Colors for dark theme */
-  --color-bg-primary: #0f172a;        /* Very dark */
-  --color-bg-secondary: #1e293b;      /* Dark gray */
-  --color-bg-tertiary: #334155;       /* Medium dark */
-  
-  /* Border and Surface for dark theme */
-  --color-border: #334155;            /* Dark border */
-  --color-surface: #1e293b;           /* Card backgrounds */
-  --color-surface-hover: #334155;     /* Hover states */
-  
-  /* Shadows for dark theme */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-}
-
-/* ==========================================================================
-   BASE STYLES
-   ========================================================================== */
-
-/* Reset and Base */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
+/* Light theme background (default) */
+html,
 body {
-  font-family: var(--font-family-body);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary) !important;
+  color: var(--color-text-primary) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure dark theme background works */
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+  background-color: #0f172a !important; /* Very dark blue-gray */
+  color: #f8fafc !important; /* Light text */
+}
+
+/* Fix for wrapper and main content areas */
+.wrapper {
+  background-color: transparent;
+}
+
+.site-content {
+  background-color: transparent;
+}
+
+/* Ensure all main containers inherit proper background */
+main,
+.site-content,
+.poem-content-wrapper,
+.poems-section,
+.books-preview,
+.section {
   background-color: var(--color-bg-primary);
-  transition: var(--transition);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-display);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-text-primary);
-  margin-bottom: 1rem;
+[data-theme="dark"] main,
+[data-theme="dark"] .site-content,
+[data-theme="dark"] .poem-content-wrapper,
+[data-theme="dark"] .poems-section,
+[data-theme="dark"] .books-preview,
+[data-theme="dark"] .section {
+  background-color: #0f172a; /* Dark background */
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1.125rem; }
-
-p {
-  color: var(--color-text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.7;
+/* Fix stats section background */
+.stats-section {
+  background-color: var(--color-bg-secondary) !important;
 }
 
-a {
-  color: var(--color-secondary);
-  text-decoration: none;
-  transition: var(--transition);
+[data-theme="dark"] .stats-section {
+  background-color: #1e293b !important; /* Slightly lighter dark */
 }
 
-a:hover {
-  color: var(--color-accent);
+/* Fix genre navigation background */
+.genre-nav {
+  background-color: var(--color-bg-secondary) !important;
+}
+
+[data-theme="dark"] .genre-nav {
+  background-color: #1e293b !important;
 }

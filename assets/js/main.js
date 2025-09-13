@@ -14,27 +14,43 @@ let allPoems = [];
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
-
+    
     if (!themeToggle) return;
-
+    
     // Check for saved theme preference or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
-
+    
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     });
-
+    
     function setTheme(theme) {
+        // Set theme on BOTH html and body elements
         document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+        
+        // Update icon
         if (themeIcon) {
             themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
+        
+        // Force background color update
+        if (theme === 'dark') {
+            document.body.style.backgroundColor = '#0f172a';
+            document.body.style.color = '#f8fafc';
+        } else {
+            document.body.style.backgroundColor = '#ffffff';
+            document.body.style.color = '#0f172a';
+        }
+        
+        console.log('Theme set to:', theme);
     }
 }
+
 
 // Mobile Menu Functionality
 function initMobileMenu() {
