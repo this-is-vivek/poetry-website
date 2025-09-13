@@ -1,165 +1,108 @@
-/* FORCE PROPER BACKGROUNDS FOR BOTH THEMES */
+---
+# This ensures Jekyll processes this file
+---
 
-/* Light theme background (default) */
 /* ==========================================================================
-   NUCLEAR DARK MODE FIX - MAXIMUM PRIORITY
+   COMPLETE CLEAN POETRY WEBSITE CSS - EVERYTHING FIXED
    ========================================================================== */
 
-/* FORCE DARK MODE BACKGROUND - MAXIMUM PRIORITY */
-html[data-theme="dark"],
-html[data-theme="dark"] body,
-body[data-theme="dark"],
-[data-theme="dark"] html,
-[data-theme="dark"] body,
+/* THEME VARIABLES - CLEAN AND WORKING */
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --accent-blue: #1e40af;
+  --accent-red: #dc2626;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Variables */
 [data-theme="dark"] {
-  background-color: #0f172a !important;
-  background: #0f172a !important;
-  color: #f8fafc !important;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-surface: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --accent-blue: #3b82f6;
+  --accent-red: #ef4444;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
-/* FORCE LIGHT MODE BACKGROUND */
-html:not([data-theme="dark"]),
-html:not([data-theme="dark"]) body,
-body:not([data-theme="dark"]),
-:not([data-theme="dark"]) html,
-:not([data-theme="dark"]) body {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
+/* BACKGROUND ENFORCEMENT (Clean) */
+html {
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 
-/* FORCE ALL CONTAINERS IN DARK MODE */
-[data-theme="dark"] .wrapper,
-[data-theme="dark"] .site-content,
-[data-theme="dark"] main,
-[data-theme="dark"] .section,
-[data-theme="dark"] .poems-section,
-[data-theme="dark"] .books-preview,
-[data-theme="dark"] .poem-content-wrapper,
-[data-theme="dark"] article,
-[data-theme="dark"] div:not(.poem-card):not(.book-card):not(.search-result) {
-  background-color: #0f172a !important;
-  background: #0f172a !important;
-}
-
-/* FORCE DARK MODE CARDS */
-[data-theme="dark"] .poem-card,
-[data-theme="dark"] .book-card {
-  background-color: #1e293b !important;
-  background: #1e293b !important;
-  color: #f8fafc !important;
-}
-
-/* FORCE DARK MODE SECTIONS */
-[data-theme="dark"] .stats-section,
-[data-theme="dark"] .genre-nav {
-  background-color: #1e293b !important;
-  background: #1e293b !important;
-}
-
-/* FORCE DARK MODE HEADER */
-[data-theme="dark"] .site-header {
-  background-color: #1e293b !important;
-  background: #1e293b !important;
-}
-
-/* FORCE ALL TEXT IN DARK MODE */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6,
-[data-theme="dark"] p,
-[data-theme="dark"] span:not(.genre),
-[data-theme="dark"] div,
-[data-theme="dark"] li,
-[data-theme="dark"] a {
-  color: #f8fafc !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-html,
 body {
-  background-color: var(--color-bg-primary) !important;
-  color: var(--color-text-primary) !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
-/* Ensure dark theme background works */
-[data-theme="dark"] html,
-[data-theme="dark"] body {
-  background-color: #0f172a !important; /* Very dark blue-gray */
-  color: #f8fafc !important; /* Light text */
+/* BASE RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Fix for wrapper and main content areas */
+/* TYPOGRAPHY */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-red);
+}
+
+/* LAYOUT CONTAINERS */
 .wrapper {
-  background-color: transparent;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.site-content {
-  background-color: transparent;
-}
-
-/* TEMPORARY DEBUG CSS - Remove after fixing */
-
-/* Force body background in dark mode */
-[data-theme="dark"] {
-  background: #0f172a !important;
-}
-
-[data-theme="dark"] body {
-  background: #0f172a !important;
-}
-
-[data-theme="dark"] html {
-  background: #0f172a !important;
-}
-
-/* Ensure all main containers inherit proper background */
-main,
-.site-content,
-.poem-content-wrapper,
-.poems-section,
-.books-preview,
-.section {
-  background-color: var(--color-bg-primary);
-}
-
-[data-theme="dark"] main,
-[data-theme="dark"] .site-content,
-[data-theme="dark"] .poem-content-wrapper,
-[data-theme="dark"] .poems-section,
-[data-theme="dark"] .books-preview,
-[data-theme="dark"] .section {
-  background-color: #0f172a; /* Dark background */
-}
-
-/* Fix stats section background */
-.stats-section {
-  background-color: var(--color-bg-secondary) !important;
-}
-
-[data-theme="dark"] .stats-section {
-  background-color: #1e293b !important; /* Slightly lighter dark */
-}
-
-/* Fix genre navigation background */
-.genre-nav {
-  background-color: var(--color-bg-secondary) !important;
-}
-
-[data-theme="dark"] .genre-nav {
-  background-color: #1e293b !important;
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
 }
