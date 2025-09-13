@@ -4,6 +4,7 @@ title: "Majhe Majhe"
 genre: romance
 date: 2025-09-07
 excerpt: "Sample Poem"
+background_image: "sample-poem.jpg" 
 tags: [train, journey, midnight, story, travel]
 ---
 
