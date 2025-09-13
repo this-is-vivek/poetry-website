@@ -11,16 +11,8 @@ layout: default
     <header class="poem-header">
         <div class="poem-hero auto-image-hero" data-image="{{ image_to_use }}">
             <div class="poem-hero-content">
-                <!-- DEBUG INFO - Remove once working -->
-                <div style="background: rgba(0,0,0,0.8); padding: 10px; margin: 10px; border-radius: 5px;">
-                    <small style="color: white;">
-                        🔍 AUTO-DETECTION DEBUG:<br>
-                        Poem filename: {{ poem_filename }}<br>
-                        Auto image: {{ auto_image }}<br>
-                        Using image: {{ image_to_use }}<br>
-                        Full path: {{ "/assets/images/backgrounds/" | append: image_to_use | relative_url }}
-                    </small>
-                </div>
+
+                
                 
                 <div class="poem-meta">
                     <span class="poem-genre">{{ page.genre | capitalize }}</span>
