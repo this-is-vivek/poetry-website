@@ -9,7 +9,7 @@ publish_date: 2024-08-22
 cover_image: "natures-whispers-cover.jpg"
 purchase_links:
   amazon: "https://amazon.com/natures-whispers"
-  local: "https://localbookstore.com/natures-whispers"
+  local: "https://share.google/FbdbVWkN2WMb9YaTo"
 ---
 
 ## About This Collection
