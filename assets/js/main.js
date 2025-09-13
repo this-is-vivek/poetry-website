@@ -1,4 +1,4 @@
-// Poetry Website - Fixed JavaScript for GitHub Pages
+// Poetry Website - Fixed JavaScript with proper URL handling for GitHub Pages
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
@@ -7,6 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearch();
     initGenreFilters();
 });
+
+// Get the correct base URL for this site
+function getBaseUrl() {
+    // Get the base URL from the current page URL
+    const path = window.location.pathname;
+    const segments = path.split('/');
+
+    // For GitHub Pages project sites, the format is: /repository-name/...
+    // For user sites, it's just /...
+    if (segments.length > 2 && segments[1] !== '') {
+        return '/' + segments[1];
+    }
+    return '';
+}
 
 // Theme Toggle Functionality
 function initThemeToggle() {
@@ -60,37 +74,64 @@ function initMobileMenu() {
     });
 }
 
-// Search Functionality
+// Search Functionality with FIXED URLs
 function initSearch() {
     const searchToggle = document.getElementById('search-toggle');
     const searchBox = document.getElementById('search-box');
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
 
-    // Sample poems data for search
+    // Get the base URL for this site
+    const baseUrl = getBaseUrl();
+
+    // Sample poems data for search with FIXED URLs
     const poems = [
         {
             title: "Hearts Entwined",
             excerpt: "A passionate ode to eternal love and connection",
             genre: "romance",
-            url: "/poems/hearts-entwined/",
+            url: baseUrl + "/poems/hearts-entwined/",
             tags: ["love", "passion", "soulmates", "eternal"]
         },
         {
             title: "Whispers of Dawn",
             excerpt: "A gentle celebration of morning's quiet beauty",
-            genre: "nature",
-            url: "/poems/whispers-of-dawn/",
+            genre: "nature", 
+            url: baseUrl + "/poems/whispers-of-dawn/",
             tags: ["morning", "nature", "peaceful", "sunrise"]
         },
         {
             title: "Reflections of Time",
             excerpt: "Contemplating the nature of time and presence",
             genre: "philosophy",
-            url: "/poems/reflections-of-time/",
+            url: baseUrl + "/poems/reflections-of-time/",
             tags: ["time", "wisdom", "present", "life"]
         }
     ];
+
+    // Auto-detect poems from the current page if possible
+    function getPagePoems() {
+        const poemCards = document.querySelectorAll('.poem-card');
+        const detectedPoems = [];
+
+        poemCards.forEach(card => {
+            const titleLink = card.querySelector('h3 a, h4 a');
+            const excerpt = card.querySelector('p');
+            const genre = card.querySelector('.genre');
+
+            if (titleLink) {
+                detectedPoems.push({
+                    title: titleLink.textContent.trim(),
+                    excerpt: excerpt ? excerpt.textContent.trim() : '',
+                    genre: genre ? genre.textContent.toLowerCase() : '',
+                    url: titleLink.href,
+                    tags: []
+                });
+            }
+        });
+
+        return detectedPoems.length > 0 ? detectedPoems : poems;
+    }
 
     if (searchToggle && searchBox) {
         searchToggle.addEventListener('click', function() {
@@ -114,7 +155,10 @@ function initSearch() {
                 return;
             }
 
-            const results = poems.filter(poem => 
+            // Use auto-detected poems if available, otherwise use hardcoded list
+            const poemsToSearch = getPagePoems();
+
+            const results = poemsToSearch.filter(poem => 
                 poem.title.toLowerCase().includes(query) ||
                 poem.excerpt.toLowerCase().includes(query) ||
                 poem.genre.toLowerCase().includes(query) ||
@@ -297,3 +341,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Debug function to help troubleshoot URLs
+function debugUrls() {
+    console.log('Current URL:', window.location.href);
+    console.log('Base URL detected:', getBaseUrl());
+    console.log('Sample poem URL would be:', getBaseUrl() + '/poems/hearts-entwined/');
+}
+
+// Uncomment the line below if you need to debug URL issues
+// debugUrls();
