@@ -1,16 +1,13 @@
----
-layout: null
----
 [
-{%- for poem in site.poems -%}
-  {
-    "title": {{ poem.title | jsonify }},
-    "excerpt": {{ poem.excerpt | default: "" | jsonify }},
-    "genre": {{ poem.genre | default: "" | jsonify }},
-    "url": {{ poem.url | relative_url | jsonify }},
-    "date": {{ poem.date | date: "%B %d, %Y" | jsonify }},
-    "tags": {{ poem.tags | default: [] | jsonify }},
-    "content": {{ poem.content | strip_html | truncate: 200 | jsonify }}
-  }{%- unless forloop.last -%},{%- endunless -%}
-{%- endfor -%}
+  {%- for poem in site.poems -%}
+    {
+      "title": {{ poem.title | jsonify }},
+      "excerpt": {{ poem.excerpt | default: "" | jsonify }},
+      "genre": {{ poem.genre | default: "" | jsonify }},
+      "url": {{ poem.url | relative_url | jsonify }},
+      "date": {{ poem.date | date: "%B %d, %Y" | jsonify }},
+      "tags": {{ poem.tags | default: [] | jsonify }},
+      "content": {{ poem.content | strip_html | truncate: 200 | jsonify }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
 ]
