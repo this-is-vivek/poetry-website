@@ -10,6 +10,16 @@ layout: default
         <div class="poem-hero poem-hero-default">
         {%- endif -%}
             <div class="poem-hero-content">
+                <!-- TEMPORARY DEBUG INFO -->
+                <div style="background: rgba(0,0,0,0.8); padding: 10px; margin: 10px; border-radius: 5px;">
+                <small style="color: white;">
+                    🔍 DEBUG INFO:<br>
+                    Image file: {{ page.background_image }}<br>
+                    Full path: {{ "/assets/images/backgrounds/" | append: page.background_image | relative_url }}<br>
+                    Base URL: {{ site.baseurl }}
+                </small>
+                </div>
+
                 <div class="poem-meta">
                     <span class="poem-genre">{{ page.genre | capitalize }}</span>
                     <time class="poem-date">{{ page.date | date: "%B %d, %Y" }}</time>

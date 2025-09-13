@@ -1,5 +1,4 @@
 // Poetry Website - Dynamic Search for ALL Poems
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initThemeToggle();
