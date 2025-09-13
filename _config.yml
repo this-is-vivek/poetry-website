@@ -3,15 +3,18 @@ title: Rivers of Words
 subtitle: Poetry • Stories • Reflections
 description: A collection of heartfelt poetry and stories exploring love, nature, and the human experience
 author: Vivekananda Das
-email: vivekanandadas@gmail.com
-baseurl: "" # Change this to your repository name like "/poetry-website" if needed
-url: "https://this-is-vivek.github.io" # Change username to your GitHub username
+email: Vivekanandadas@gmail.com
+
+# IMPORTANT: Update these for your GitHub repository
+# For repository named 'poetry-website', hosted at username.github.io/poetry-website
+baseurl: "/poetry-website" # Change this to your repository name
+url: "https://this-is-vivek.github.io" # Change to your GitHub username
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:categories/:title/
-timezone: Asia/Kolkata
+timezone: UTC
 
 # Collections
 collections:
@@ -39,10 +42,11 @@ defaults:
       type: "books"
     values:
       layout: "book"
-
-# Pagination
-paginate: 6
-paginate_path: "/page:num/"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
 
 # SEO settings
 plugins:
@@ -60,6 +64,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - LICENSE
 
 # Genre configuration
 genres:
@@ -72,11 +77,19 @@ genres:
 social:
   twitter: alexriverspoet
   instagram: rivers_poetry
-  github: username # Change to your GitHub username
+  github: your-username # Change to your GitHub username
 
-# Google Analytics (optional)
+# Optional: Uncomment and configure these if needed
 # google_analytics: UA-XXXXXXXX-X
-
-# Disqus comments (optional)
 # disqus:
 #   shortname: your-disqus-shortname
+
+# Jekyll 4 configuration
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Kramdown configuration
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

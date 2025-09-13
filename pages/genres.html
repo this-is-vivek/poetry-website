@@ -1,104 +1,44 @@
 ---
-layout: page
+layout: default
 title: Genres
 permalink: /genres/
 ---
 
-<div class="page-header">
+<div class="hero-section">
     <div class="wrapper">
         <h1>Explore by Genre</h1>
         <p>Discover poems organized by theme and mood</p>
     </div>
 </div>
 
-<div class="genres-content">
-    <div class="wrapper">
-        <div class="genre-filters">
-            <button class="filter-btn active" data-genre="all">All Genres</button>
-            {% for genre in site.genres %}
-            <button class="filter-btn" data-genre="{{ genre }}">{{ genre | capitalize }}</button>
-            {% endfor %}
-        </div>
-
-        <div class="poems-grid" id="poems-grid">
-            {% assign sorted_poems = site.poems | sort: 'date' | reverse %}
-            {% for poem in sorted_poems %}
-            {% include poem-card.html poem=poem %}
-            {% endfor %}
-        </div>
-
-        {% if site.poems.size == 0 %}
-        <div class="empty-state">
-            <h3>No poems yet</h3>
-            <p>Check back soon for new poetry collections!</p>
-        </div>
-        {% endif %}
+<div class="wrapper">
+    <div class="genre-buttons" style="text-align: center; margin-bottom: 3rem;">
+        <button class="genre-btn active" data-genre="all">All Genres</button>
+        {%- for genre in site.genres -%}
+        <button class="genre-btn" data-genre="{{ genre }}">{{ genre | capitalize }}</button>
+        {%- endfor -%}
     </div>
+
+    <div class="poems-grid">
+        {%- assign sorted_poems = site.poems | sort: 'date' | reverse -%}
+        {%- for poem in sorted_poems -%}
+        <article class="poem-card" data-genre="{{ poem.genre }}">
+            <h3><a href="{{ poem.url | relative_url }}">{{ poem.title }}</a></h3>
+            {%- if poem.excerpt -%}
+            <p>{{ poem.excerpt }}</p>
+            {%- endif -%}
+            <div class="poem-card-meta">
+                <span class="genre">{{ poem.genre | capitalize }}</span>
+                <time class="date">{{ poem.date | date: "%b %d, %Y" }}</time>
+            </div>
+        </article>
+        {%- endfor -%}
+    </div>
+
+    {%- if site.poems.size == 0 -%}
+    <div style="text-align: center; padding: 4rem 2rem; color: #7f8c8d;">
+        <h3>No poems yet</h3>
+        <p>Check back soon for new poetry collections!</p>
+    </div>
+    {%- endif -%}
 </div>
-
-<style>
-.genre-filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: none;
-    border: 2px solid var(--border-color);
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 500;
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: white;
-}
-
-.empty-state {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: var(--text-light);
-}
-
-.empty-state h3 {
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const poemCards = document.querySelectorAll('.poem-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const genre = button.dataset.genre;
-
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            // Filter poems
-            poemCards.forEach(card => {
-                const cardGenre = card.dataset.genre;
-                if (genre === 'all' || cardGenre === genre) {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.5s ease-in';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-});
-</script>

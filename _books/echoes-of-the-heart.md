@@ -1,53 +1,40 @@
 ---
-layout: book
+layout: default
 title: "Echoes of the Heart"
-subtitle: "A Collection of Romantic Poetry"
-description: "A collection of romantic poetry exploring love, loss, and healing through the journey of the human heart."
-isbn: "978-0-123456-78-9"
-pages: 120
-publish_date: 2024-05-15
-cover_image: "echoes-heart-cover.jpg"
-purchase_links:
-  amazon: "https://amazon.com/echoes-heart"
-  local: "https://localbookstore.com/echoes-heart"
 ---
 
-## About This Collection
+<div class="hero-section">
+    <div class="wrapper">
+        <h1>{{ page.title }}</h1>
+        <p>A Collection of Romantic Poetry</p>
+    </div>
+</div>
 
-*Echoes of the Heart* takes readers on an emotional journey through the many faces of love. From the butterflies of new romance to the deep comfort of lasting partnership, from the pain of heartbreak to the healing power of self-love, these poems explore the full spectrum of human connection.
+<div class="wrapper">
+    <div class="poem-content">
+        <div class="poem-text">
+            <h2>About This Collection</h2>
 
-### Featured Themes
+            <p><em>Echoes of the Heart</em> takes readers on an emotional journey through the many faces of love. From the butterflies of new romance to the deep comfort of lasting partnership, these poems explore the full spectrum of human connection.</p>
 
-- **New Love**: The excitement and wonder of discovering someone special
-- **Lasting Partnership**: The deep comfort of long-term love
-- **Heartbreak**: Processing loss and moving forward
-- **Self-Love**: The journey to loving oneself
-- **Hope**: Finding light after darkness
+            <h3>What's Inside</h3>
 
-### Sample Poems
+            <p>This collection features 45 carefully crafted poems organized into five thematic sections:</p>
 
-**"First Kiss"**
-*A tender moment captured in verse about that magical first connection...*
+            <ul>
+                <li><strong>First Light</strong> - The awakening of new love</li>
+                <li><strong>Deep Waters</strong> - The depths of committed love</li>
+                <li><strong>Broken Wings</strong> - Heartbreak and loss</li>
+                <li><strong>Phoenix Rising</strong> - Healing and self-discovery</li>
+                <li><strong>New Horizons</strong> - Hope and second chances</li>
+            </ul>
 
-**"After the Storm"** 
-*Finding peace and healing after the end of a relationship...*
+            <h3>Reviews</h3>
 
-**"Growing Old Together"**
-*Celebrating love that endures through all of life's seasons...*
-
-### Reviews
-
-*"A beautiful exploration of love in all its forms. Each poem feels like a personal letter to the heart."* - Poetry Review Magazine
-
-*"Rivera's writing captures the essence of human emotion with remarkable clarity and grace."* - Literary Quarterly
-
-*"These poems will resonate with anyone who has ever loved, lost, or hoped for love again."* - Modern Poetry Today
-
-### Excerpt
-
-> In quiet moments between heartbeats,
-> Love writes its poetry on our souls,
-> Each line a memory, each stanza
-> A chapter in our shared story...
-
-This collection includes 45 carefully crafted poems that speak to the universal experiences of love and connection. Perfect for readers who appreciate honest, accessible poetry that touches the heart.
+            <blockquote>
+                <p>"A beautiful exploration of love in all its forms. Each poem feels like a personal letter to the heart."</p>
+                <cite>— Poetry Review Magazine</cite>
+            </blockquote>
+        </div>
+    </div>
+</div>

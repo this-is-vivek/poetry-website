@@ -18,9 +18,9 @@ layout: default
         <h2>Explore by Genre</h2>
         <div class="genre-buttons">
             <button class="genre-btn active" data-genre="all">All</button>
-            {% for genre in site.genres %}
+            {%- for genre in site.genres -%}
             <button class="genre-btn" data-genre="{{ genre }}">{{ genre | capitalize }}</button>
-            {% endfor %}
+            {%- endfor -%}
         </div>
     </div>
 </section>
@@ -30,10 +30,19 @@ layout: default
         <h2 class="section-title">Featured Poems</h2>
 
         <div class="poems-grid">
-            {% assign sorted_poems = site.poems | sort: 'date' | reverse %}
-            {% for poem in sorted_poems limit: 6 %}
-            {% include poem-card.html poem=poem %}
-            {% endfor %}
+            {%- assign sorted_poems = site.poems | sort: 'date' | reverse -%}
+            {%- for poem in sorted_poems limit: 6 -%}
+            <article class="poem-card" data-genre="{{ poem.genre }}">
+                <h3><a href="{{ poem.url | relative_url }}">{{ poem.title }}</a></h3>
+                {%- if poem.excerpt -%}
+                <p>{{ poem.excerpt }}</p>
+                {%- endif -%}
+                <div class="poem-card-meta">
+                    <span class="genre">{{ poem.genre | capitalize }}</span>
+                    <time class="date">{{ poem.date | date: "%b %d, %Y" }}</time>
+                </div>
+            </article>
+            {%- endfor -%}
         </div>
 
         <div class="text-center">
@@ -65,87 +74,26 @@ layout: default
     </div>
 </section>
 
+{%- if site.books.size > 0 -%}
 <section class="books-preview">
     <div class="wrapper">
         <h2 class="section-title">Published Collections</h2>
         <div class="books-grid">
-            {% for book in site.books limit: 2 %}
+            {%- for book in site.books limit: 2 -%}
             <article class="book-card">
-                {% if book.cover_image %}
-                <div class="book-cover">
-                    <img src="{{ "/assets/images/books/" | append: book.cover_image | relative_url }}" 
-                         alt="{{ book.title }} cover"
-                         onerror="this.style.display='none'">
-                </div>
-                {% endif %}
                 <div class="book-info">
                     <h3><a href="{{ book.url | relative_url }}">{{ book.title }}</a></h3>
-                    {% if book.subtitle %}
+                    {%- if book.subtitle -%}
                     <p class="book-subtitle">{{ book.subtitle }}</p>
-                    {% endif %}
+                    {%- endif -%}
                     <p class="book-description">{{ book.description }}</p>
-                    <div class="book-meta">
-                        {% if book.pages %}
-                        <span class="pages">{{ book.pages }} pages</span>
-                        {% endif %}
-                        {% if book.publish_date %}
-                        <time class="publish-date">{{ book.publish_date | date: "%B %Y" }}</time>
-                        {% endif %}
-                    </div>
-                    {% if book.purchase_links %}
-                    <div class="purchase-links">
-                        {% if book.purchase_links.amazon %}
-                        <a href="{{ book.purchase_links.amazon }}" class="btn btn-primary" target="_blank" rel="noopener">
-                            Buy on Amazon
-                        </a>
-                        {% endif %}
-                    </div>
-                    {% endif %}
                 </div>
             </article>
-            {% endfor %}
+            {%- endfor -%}
         </div>
         <div class="text-center">
             <a href="{{ "/books/" | relative_url }}" class="btn btn-primary">View All Books</a>
         </div>
     </div>
 </section>
-
-<style>
-.hero-actions {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.stats-section {
-    background-color: var(--surface-color);
-    padding: 3rem 0;
-    margin: 3rem 0;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    text-align: center;
-}
-
-.stat-item h3 {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-}
-
-.stat-item p {
-    color: var(--text-light);
-    font-weight: 500;
-    margin-bottom: 0;
-}
-
-.books-preview {
-    padding: 3rem 0;
-}
-</style>
+{%- endif -%}

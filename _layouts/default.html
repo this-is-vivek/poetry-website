@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% seo %}
+    {%- seo -%}
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <!-- Main CSS - FIXED PATH -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-    {% feed_meta %}
+    {%- feed_meta -%}
 </head>
 <body class="site">
-    {% include header.html %}
+    {%- include header.html -%}
 
     <main class="site-content" aria-label="Content">
         <div class="wrapper">
@@ -25,8 +26,9 @@
         </div>
     </main>
 
-    {% include footer.html %}
+    {%- include footer.html -%}
 
-    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+    <!-- Main JavaScript - FIXED PATH -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

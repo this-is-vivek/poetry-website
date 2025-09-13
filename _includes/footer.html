@@ -9,15 +9,15 @@
             <div class="footer-section">
                 <h4>Connect</h4>
                 <div class="social-links">
-                    {% if site.social.twitter %}
+                    {%- if site.social.twitter -%}
                     <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank" rel="noopener">Twitter</a>
-                    {% endif %}
-                    {% if site.social.instagram %}
+                    {%- endif -%}
+                    {%- if site.social.instagram -%}
                     <a href="https://instagram.com/{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a>
-                    {% endif %}
-                    {% if site.social.github %}
+                    {%- endif -%}
+                    {%- if site.social.github -%}
                     <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a>
-                    {% endif %}
+                    {%- endif -%}
                     <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
                 </div>
             </div>
@@ -25,9 +25,9 @@
             <div class="footer-section">
                 <h4>Explore</h4>
                 <nav class="footer-nav">
-                    {% for genre in site.genres %}
+                    {%- for genre in site.genres -%}
                     <a href="{{ "/genres/" | relative_url }}#{{ genre }}">{{ genre | capitalize }}</a>
-                    {% endfor %}
+                    {%- endfor -%}
                 </nav>
             </div>
         </div>
