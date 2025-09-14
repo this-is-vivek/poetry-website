@@ -1,6 +1,6 @@
 ---
 layout: poem
-title: "Reflections of Time"
+title: "সে যখন আসেনা"
 genre: philosophy
 date: 2025-09-11
 excerpt: "Contemplating the nature of time and presence"
