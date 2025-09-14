@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "Shrabostir Pathik Ratrite"  
+title: "Srabostir Pathik Ratrite"  
 subtitle: "Poems of Life"
 description: "A collection celebrating the beauty and wisdom "
 isbn: "978-0-123456-79-6" 
