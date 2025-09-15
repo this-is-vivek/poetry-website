@@ -457,7 +457,7 @@ a:hover {
 
 /* Bengali-specific text improvements */
 .poem-text p {
-  margin-bottom: 1.1em;
+  margin-bottom: 0.6em;
   white-space: pre-line; /* Preserves line breaks */
 }
 
