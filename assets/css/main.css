@@ -435,7 +435,7 @@ a:hover {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
-  column-gap: 1em;
+  column-gap: 0.5em;
 }
 
 /* Bengali and Multi-language Text Support */
