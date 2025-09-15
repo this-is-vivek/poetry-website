@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "Srabostir Pathik Ratrite"  
+title: "শ্রাবস্তীর পথিক রাত্রিতে"  
 subtitle: "Poems of Life"
 description: "A collection celebrating the beauty and wisdom "
 isbn: "978-0-123456-79-6" 
@@ -10,7 +10,7 @@ cover_image: "Srabostir-Pathik-Ratrite.jpg"
 purchase_links:
   amazon: "https://amazon.com/natures-whispers"
   local: "https://share.google/FbdbVWkN2WMb9YaTo"
----
+--- 
 
 ## About This Collection
 
