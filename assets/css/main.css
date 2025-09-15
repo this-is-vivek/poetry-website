@@ -444,7 +444,7 @@ a:hover {
   line-height: 2.4; /* Better for Bengali text */
   text-align: left;
   margin-bottom: 3rem;
-  padding: 2rem;
+  padding: 1rem 0.5rem;
   background-color: var(--surface-color);
   border-radius: var(--border-radius);
   border-left: 4px solid var(--secondary-color);
@@ -457,7 +457,7 @@ a:hover {
 
 /* Bengali-specific text improvements */
 .poem-text p {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.3rem;
   white-space: pre-line; /* Preserves line breaks */
 }
 

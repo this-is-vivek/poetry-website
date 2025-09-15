@@ -12,7 +12,7 @@ layout: default
             </div>
             {% endif %}
             <div class="author-image" style="margin-top: 1rem;">
-                <img src="{{ '/assets/images/author/profile.jpg' | relative_url }}" alt="Author profile image" width="90" height="90" style="border-radius:50%;object-fit:cover;border:2px solid #eee;">
+                <img src="{{ '/assets/images/author/profile.jpg' | relative_url }}" alt="Author profile image" width="90" height="90" style="border-radius:50%;object-fit:cover;border:2px solid #eee;" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Author&background=eee&color=555&size=90';">
             </div>
             <div class="book-info">
                 <h1 class="book-title">{{ page.title }}</h1>

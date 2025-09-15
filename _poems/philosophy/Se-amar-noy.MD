@@ -7,8 +7,6 @@ excerpt: "About feelings"
 tags: [forest, trees, sanctuary, peace, solitude]
 ---
 
-
-
 তোমার দুয়ারে পেয়েছি
 গেরুয়া বসন
 অঙ্গের তিলক মাটি
