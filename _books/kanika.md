@@ -1,11 +1,11 @@
 ---
 layout: book
-title: "Nature's Whispers"  
+title: "কণিকা"  
 subtitle: "Poems from the Natural World"
-description: "A collection celebrating the beauty and wisdom found in the natural world, from mountain peaks to quiet meadows."
+description: "My first book of poems"
 isbn: "978-0-123456-79-6" 
-pages: 95
-publish_date: 2024-08-22
+pages: 155
+publish_date: 2015-08-2201
 cover_image: "natures-whispers-cover.jpg"
 purchase_links:
   amazon: "https://amazon.com/natures-whispers"
