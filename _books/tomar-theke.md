@@ -1,10 +1,10 @@
 ---
 layout: book
 title: "তোমার থেকে মুখ ফিরিয়ে নিয়েছি সুন্দর"  
-subtitle: "Poems of Life"
+subtitle: "Poems of Life published from Bangladesh"
 description: "A collection celebrating the beauty and wisdom "
-isbn: "978-0-123456-79-6" 
-pages: 150
+isbn: "978-984 93821-6-4" 
+pages: 144
 publish_date: 2018-01-31
 cover_image: "tomar theke.jpg.jpg"
 purchase_links:
@@ -40,13 +40,13 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 ### Sample Poems
 
-**"Dawn Chorus"**
+**"তোকেই তো চেয়েছি"** 
 *The morning symphony of birdsong welcoming the day...*
 
-**"Ancient Oak"**
+**"যাব যেদিন চলেই যাবো"**
 *Wisdom from a tree that has weathered centuries...*  
 
-**"Ocean's Edge"**
+**"প্রেমের ফসল"**
 *Contemplations while walking along the shore...*
 
 ### What Readers Say
@@ -57,4 +57,4 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 *"A perfect companion for anyone who finds solace and inspiration in nature."* - Hiking Journal
 
-This collection includes 38 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
+This collection includes more then 100 poems. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
