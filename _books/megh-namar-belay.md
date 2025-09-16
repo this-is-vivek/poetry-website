@@ -3,8 +3,8 @@ layout: book
 title: "মেঘ নামার বেলায়"  
 subtitle: "Poems from the Natural World"
 description: "My seventh book of poems"
-isbn: "978-0-123456-79-6" 
-pages: 155
+isbn: "9 7893936 759955" 
+pages: 160
 publish_date: 2024-01-28
 cover_image: "megh.jpg.jpg"
 purchase_links:
@@ -40,14 +40,14 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 ### Sample Poems
 
-**"Dawn Chorus"**
+**"মানুষ খুঁজে পাবো বলে"**
 *The morning symphony of birdsong welcoming the day...*
 
-**"Ancient Oak"**
+**"ঝরা পলাশের কথা"**
 *Wisdom from a tree that has weathered centuries...*  
 
-**"Ocean's Edge"**
-*Contemplations while walking along the shore...*
+**"ছোট দুঃখ"**
+*Contemplations while walking along the shore...* 
 
 ### What Readers Say
 
@@ -57,4 +57,4 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 *"A perfect companion for anyone who finds solace and inspiration in nature."* - Hiking Journal
 
-This collection includes 38 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
+This collection includes more than 100 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
