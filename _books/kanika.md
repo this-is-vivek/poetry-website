@@ -6,7 +6,7 @@ description: "My first book of poems"
 isbn: "978-0-123456-79-6" 
 pages: 155
 publish_date: 2015-08-2201
-cover_image: "kanika.jpg"
+cover_image: "kanika.jpg.jpg"
 purchase_links:
   amazon: "https://amazon.com/natures-whispers"
   local: "https://share.google/FbdbVWkN2WMb9YaTo"
