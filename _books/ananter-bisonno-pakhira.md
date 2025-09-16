@@ -2,9 +2,9 @@
 layout: book
 title: "অনন্তের বিষন্ন পাখিরা"  
 subtitle: "Poems from the Natural World"
-description: "My first book of poems"
-isbn: "978-0-123456-79-6" 
-pages: 155
+description: "My Second book of poems"
+isbn: "9 789387 770126" 
+pages: 208
 publish_date: 2016-01-22
 cover_image: "ananter.jpg.jpg"
 purchase_links:
@@ -40,13 +40,13 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 ### Sample Poems
 
-**"Dawn Chorus"**
+**"আমিও ঈশ্বর"**
 *The morning symphony of birdsong welcoming the day...*
 
-**"Ancient Oak"**
+**"ক্লান্তির উপত্যকা ছেড়ে "**
 *Wisdom from a tree that has weathered centuries...*  
 
-**"Ocean's Edge"**
+**" ভুল মানুষ"**
 *Contemplations while walking along the shore...*
 
 ### What Readers Say
@@ -57,4 +57,4 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 *"A perfect companion for anyone who finds solace and inspiration in nature."* - Hiking Journal
 
-This collection includes 38 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
+This collection includes more then 110 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
