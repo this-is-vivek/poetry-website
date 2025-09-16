@@ -1,11 +1,10 @@
----
 layout: poem
 title: "বাতাসে পরাগের চিহ্ন"
 genre: nature
 date: 2025-09-08
 excerpt: "Finding peace in nature's cathedral"
 tags: [forest, trees, sanctuary, peace, solitude]
----
+ background_image: "bataseporager.jpg"
 
 বাতাসে পরাগের চিহ্ন, খোঁপায় পলাশ পরার
 সময় চলে এলো বসন্ত,
