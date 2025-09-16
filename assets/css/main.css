@@ -467,7 +467,7 @@ a:hover {
 .poem-text {
   font-family: var(--font-display), 'Noto Sans Bengali', 'Kalpurush', 'Mukti Narrow', serif;
   font-size: 1.1rem;
-  line-height: 1.7; /* Reduced for tighter poem spacing */
+  line-height: 1.3; /* Further reduced for even tighter poem spacing */
   text-align: left;
   margin-bottom: 3rem;
   padding: 1rem 0.5rem;
