@@ -1,10 +1,10 @@
 ---
 layout: book
 title: "সেই মেয়েটি"  
-subtitle: "Poems from the Natural World"
-description: "My first book of poems"
-isbn: "978-0-123456-79-6" 
-pages: 155
+subtitle: "Complete coloured poem book"
+description: "My 6th book of poems"
+isbn: "9 789392 118494" 
+pages: 110
 publish_date: 2023-01-30
 cover_image: "sei.jpg.jpg"
 purchase_links:
@@ -40,13 +40,13 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 ### Sample Poems
 
-**"Dawn Chorus"**
+**"হেমন্তের বাতাসে"**
 *The morning symphony of birdsong welcoming the day...*
 
-**"Ancient Oak"**
+**"একটা তুমি চাই"**
 *Wisdom from a tree that has weathered centuries...*  
 
-**"Ocean's Edge"**
+**"মায়া রেখে যাই"**
 *Contemplations while walking along the shore...*
 
 ### What Readers Say
@@ -57,4 +57,4 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 *"A perfect companion for anyone who finds solace and inspiration in nature."* - Hiking Journal
 
-This collection includes 38 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
+This collection includes more then 200 small poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
