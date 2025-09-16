@@ -1,9 +1,3 @@
-/* Poem Hero Background Image */
-.poem-hero.auto-image-hero[data-image] {
-  background-image: url('/assets/images/backgrounds/' attr(data-image));
-  background-size: cover;
-  background-position: center;
-}
 /* Announcement Box Styles */
 .announcement-section {
   background: var(--surface-color);
