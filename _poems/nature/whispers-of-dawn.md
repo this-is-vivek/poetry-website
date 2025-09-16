@@ -1,18 +1,36 @@
 ---
 layout: poem
-title: "Whispers of Dawn"
+title: "মাটির গন্ধ"
 genre: nature
-date: 2025-09-13
-excerpt: "A gentle celebration of morning's quiet beauty"
-tags: [morning, nature, peaceful, sunrise]
+date: 2025-09-16
+excerpt: "Finding peace in nature's cathedral"
+tags: [forest, trees, sanctuary, peace, solitude]
+background_image: "bataseporager.jpg"
 ---
 
-Morning dew kisses the earth,
-Sunlight dances through leaves,
-A symphony of awakening,
-As nature gently breathes.
+মাটির গন্ধ লেগে আছে বুকে
+ফুল ফুটে ঝরে গেছে কবে... 
+কত প্রতিমা রঙের প্রলেপ মেখে 
+ভেসে গেছে নিরঞ্জনে... ! 
 
-Golden rays pierce the mist,
-Birds sing their morning song,
-The world comes alive again,
-Where peaceful moments belong.
+একটা আকাশ ছোঁওয়া মহীরুহর ভিতরে 
+জেগে থাকা শিশু চারাগাছ বলে যাচ্ছে
+এক মকরশলের জন্মবৃত্তান্ত... 
+
+কত জন্ম-মৃত্যু দেখেছে এ শহর
+কত মিছিল পথের বাঁকে চলে গেছে
+অন্য কোনো পথে 
+অজস্র অন্য শহরকে বুকে নিয়ে ক্রমশ 
+বেড়ে উঠছে অচেনা শহরের পরিসীমা...
+কবে যেনো প্রিয়ংবদা হতে জয়িতা হয়েছো তুমি
+তবু তোমার বুকের ভিতর আজও 
+জেগে আছে প্রাচীন মাটির কন্ঠস্বর... 
+
+অট্টালিকা ভেঙে তুমি খুঁজে যাও
+মাটির কুটির.... 
+এক উৎসব শেষে আরেক উৎসবের সন্ধানে
+মাটির ভিতরে প্রাণ দিয়ে রাখে 
+মাটির কারিগর.... 
+কত ফুল ঝরে গেছে কবে
+তবু বুকের ভিতর নারীর হৃদয়ের মতো
+মাটির গন্ধ লেগে থাকে....!
