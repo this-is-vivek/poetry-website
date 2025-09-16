@@ -1,3 +1,12 @@
+// Dynamically set poem background image from data-image attribute
+document.addEventListener('DOMContentLoaded', function() {
+    var hero = document.querySelector('.poem-hero.auto-image-hero');
+    if (hero && hero.dataset.image) {
+        hero.style.backgroundImage = "url('/assets/images/backgrounds/" + hero.dataset.image + ")";
+        hero.style.backgroundSize = 'cover';
+        hero.style.backgroundPosition = 'center';
+    }
+});
 // Poetry Website - Dynamic Search for ALL Poems
 
 document.addEventListener('DOMContentLoaded', function() {
