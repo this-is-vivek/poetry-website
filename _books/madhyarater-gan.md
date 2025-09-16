@@ -2,9 +2,9 @@
 layout: book
 title: "মধ্যরাতের গান"  
 subtitle: "Poems from the Natural World"
-description: "My first book of poems"
-isbn: "978-0-123456-79-6" 
-pages: 155
+description: "My 4th book of poems"
+isbn: "9 789390 733583" 
+pages: 136
 publish_date: 2022-01-25
 cover_image: "madhya.jpg.jpg"
 purchase_links:
@@ -40,13 +40,13 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 ### Sample Poems
 
-**"Dawn Chorus"**
+**"কেউ ভালোবাসেনা"**
 *The morning symphony of birdsong welcoming the day...*
 
-**"Ancient Oak"**
+**"ঋত্তিকের সংসার"**
 *Wisdom from a tree that has weathered centuries...*  
 
-**"Ocean's Edge"**
+**"নীরব বিসর্জন"**
 *Contemplations while walking along the shore...*
 
 ### What Readers Say
