@@ -57,4 +57,4 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 *"A perfect companion for anyone who finds solace and inspiration in nature."* - Hiking Journal
 
-This collection includes 38 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
+This collection includes about 110 poems accompanied by stunning nature photography. Ideal for outdoor enthusiasts, poetry lovers, and anyone seeking a deeper connection with the natural world.
