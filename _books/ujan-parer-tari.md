@@ -6,7 +6,7 @@ description: "A collection celebrating the beauty and wisdom "
 isbn: "978-0-123456-79-6" 
 pages: 150
 publish_date: 2021-01-31
-cover_image: "ujanparer.jpg"
+cover_image: "ujanparer.jpg.jpg"
 purchase_links:
   amazon: "https://amazon.com/natures-whispers"
   local: "https://share.google/FbdbVWkN2WMb9YaTo"
