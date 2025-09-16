@@ -3,9 +3,9 @@ layout: book
 title: "কণিকা"  
 subtitle: "Poems from the Natural World"
 description: "My first book of poems"
-isbn: "978-0-123456-79-6" 
-pages: 155
-publish_date: 2015-08-2201
+isbn: "123-456-789-0" 
+pages: 208
+publish_date: 2015-08-22
 cover_image: "kanika.jpg.jpg"
 purchase_links:
   amazon: "https://amazon.com/natures-whispers"
@@ -40,13 +40,13 @@ Beyond beauty, these poems also touch on our responsibility to protect and prese
 
 ### Sample Poems
 
-**"Dawn Chorus"**
+**"কণিকা"**
 *The morning symphony of birdsong welcoming the day...*
 
-**"Ancient Oak"**
+**"মন কি বাতে"**
 *Wisdom from a tree that has weathered centuries...*  
 
-**"Ocean's Edge"**
+**"আমিও হয়তো বা ঈশ্বর"**
 *Contemplations while walking along the shore...*
 
 ### What Readers Say
