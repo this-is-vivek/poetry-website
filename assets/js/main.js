@@ -13,10 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             })
             .catch(function(error) {
-                els.forEach(function(el) {
-                    el.textContent = '0';
-                });
-                console.error('Visitor counter error:', error);
+                // Try to get the current value if update fails
+                fetch('https://api.countapi.xyz/get?namespace=kanika-visitors&key=global')
+                    .then(response => response.json())
+                    .then(result => {
+                        els.forEach(function(el) {
+                            el.textContent = result.value;
+                        });
+                    })
+                    .catch(function(getError) {
+                        els.forEach(function(el) {
+                            el.textContent = 'Error';
+                        });
+                        console.error('Visitor counter error:', error, getError);
+                    });
             });
     } else {
         console.warn('Visitor counter element not found');
