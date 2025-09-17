@@ -1,29 +1,36 @@
 // Visitor counter using CountAPI for global count
 document.addEventListener('DOMContentLoaded', function() {
     var els = document.querySelectorAll('#visitor-count');
+    console.log('[VisitorCounter] Elements found:', els.length);
     if (els.length > 0) {
         els.forEach(function(el) {
             el.textContent = 'Loading...';
         });
-        // Use site URL as key for uniqueness
         var siteKey = (window.location.hostname + window.location.pathname).replace(/[^a-zA-Z0-9]/g, '');
         var namespace = 'kanika-visitors';
         var key = siteKey || 'global';
+        console.log('[VisitorCounter] Using namespace:', namespace, 'key:', key);
         fetch('https://api.countapi.xyz/update?namespace=' + namespace + '&key=' + key + '&amount=1')
             .then(response => {
+                console.log('[VisitorCounter] Update response status:', response.status);
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.json();
             })
             .then(result => {
+                console.log('[VisitorCounter] Update result:', result);
                 els.forEach(function(el) {
                     el.textContent = result.value;
                 });
             })
             .catch(function(error) {
-                // Try to get the current value if update fails
+                console.error('[VisitorCounter] Update failed:', error);
                 fetch('https://api.countapi.xyz/get?namespace=' + namespace + '&key=' + key)
-                    .then(response => response.json())
+                    .then(response => {
+                        console.log('[VisitorCounter] Get response status:', response.status);
+                        return response.json();
+                    })
                     .then(result => {
+                        console.log('[VisitorCounter] Get result:', result);
                         els.forEach(function(el) {
                             el.textContent = result.value;
                         });
@@ -32,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         els.forEach(function(el) {
                             el.textContent = 'Error';
                         });
-                        console.error('Visitor counter error:', error, getError);
+                        console.error('[VisitorCounter] Both update and get failed:', error, getError);
                     });
             });
     } else {
-        console.warn('Visitor counter element not found');
+        console.warn('[VisitorCounter] Visitor counter element not found');
     }
 });
 // Dynamically set poem background image from data-image attribute
