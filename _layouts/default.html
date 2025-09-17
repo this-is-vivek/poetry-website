@@ -27,6 +27,16 @@
 
     {% include footer.html %}
 
-    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+        <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+        <script>
+        // Simple digital visitor counter using localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            var count = localStorage.getItem('visitorCount');
+            count = count ? parseInt(count) + 1 : 1;
+            localStorage.setItem('visitorCount', count);
+            var el = document.getElementById('visitor-count');
+            if (el) el.textContent = count;
+        });
+        </script>
 </body>
 </html>
