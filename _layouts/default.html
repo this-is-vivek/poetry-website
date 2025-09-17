@@ -30,14 +30,17 @@
                 <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
                 <script>
                 // Visitor counter using CountAPI for global count
-                document.addEventListener('DOMContentLoaded', function() {
-                    fetch('https://api.countapi.xyz/hit/kanika-visitors/global')
-                        .then(response => response.json())
-                        .then(result => {
-                            var el = document.getElementById('visitor-count');
-                            if (el) el.textContent = result.value;
-                        });
-                });
+                    document.addEventListener('DOMContentLoaded', function() {
+                        fetch('https://api.countapi.xyz/create?namespace=kanika-visitors&key=global&value=0')
+                            .then(() => {
+                                fetch('https://api.countapi.xyz/hit/kanika-visitors/global')
+                                    .then(response => response.json())
+                                    .then(result => {
+                                        var el = document.getElementById('visitor-count');
+                                        if (el) el.textContent = result.value;
+                                    });
+                            });
+                    });
                 </script>
 </body>
 </html>
