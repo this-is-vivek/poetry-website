@@ -28,19 +28,5 @@
     {% include footer.html %}
 
                 <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
-                <script>
-                // Visitor counter using CountAPI for global count
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        var el = document.getElementById('visitor-count');
-                                        fetch('https://api.countapi.xyz/update?namespace=kanika-visitors&key=global&amount=1')
-                                            .then(response => response.json())
-                                            .then(result => {
-                                                if (el) el.textContent = result.value;
-                                            })
-                                            .catch(function() {
-                                                if (el) el.textContent = '0';
-                                            });
-                                    });
-                </script>
 </body>
 </html>
