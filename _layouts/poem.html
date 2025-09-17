@@ -38,10 +38,15 @@ layout: default
     
     <!-- Rest of your poem layout stays the same -->
     <div class="poem-content-wrapper">
-        <div class="poem-content">
-            <div class="poem-text">
-                {{ content }}
-            </div>
+                <div class="poem-content">
+                        {% if page.genre == 'chitra' and page.chitra_image %}
+                            <div class="chitra-image-box" style="text-align:center;margin-bottom:1.5rem;">
+                                <img src="{{ site.baseurl }}/assets/images/chitra/{{ page.chitra_image }}" alt="Chitra Image" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
+                            </div>
+                        {% endif %}
+                        <div class="poem-text">
+                                {{ content }}
+                        </div>
             
             <div class="poem-actions">
                 <button class="btn-share" onclick="sharePoem()">Share Poem</button>
