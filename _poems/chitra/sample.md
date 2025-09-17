@@ -1,0 +1,1 @@
+photo: "sample-photo.jpg"
