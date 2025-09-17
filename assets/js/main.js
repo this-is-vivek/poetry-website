@@ -24,22 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(function(error) {
                 console.error('[VisitorCounter] Update failed:', error);
-                fetch('https://api.countapi.xyz/get?namespace=' + namespace + '&key=' + key)
-                    .then(response => {
-                        console.log('[VisitorCounter] Get response status:', response.status);
-                        return response.json();
-                    })
+                // Try public demo key as fallback
+                fetch('https://api.countapi.xyz/update?namespace=demo&key=demo&amount=1')
+                    .then(response => response.json())
                     .then(result => {
-                        console.log('[VisitorCounter] Get result:', result);
                         els.forEach(function(el) {
-                            el.textContent = result.value;
+                            el.textContent = result.value + ' (demo)';
                         });
+                        console.warn('[VisitorCounter] Using demo key fallback');
                     })
-                    .catch(function(getError) {
+                    .catch(function(demoError) {
                         els.forEach(function(el) {
                             el.textContent = 'Error';
                         });
-                        console.error('[VisitorCounter] Both update and get failed:', error, getError);
+                        console.error('[VisitorCounter] All update attempts failed:', error, demoError);
                     });
             });
     } else {
