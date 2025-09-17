@@ -42,10 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.warn('[VisitorCounter] Using demo key fallback');
                     })
                     .catch(function(demoError) {
-                        els.forEach(function(el) {
-                            el.textContent = 'Error';
-                        });
-                        console.error('[VisitorCounter] All update attempts failed:', error, demoError);
+                        // Try a public API to test fetch
+                        fetchWithTimeout('https://api.github.com', {}, 5000)
+                            .then(response => {
+                                if (!response.ok) throw new Error('GitHub API not ok');
+                                els.forEach(function(el) {
+                                    el.textContent = 'Network issue';
+                                });
+                                console.error('[VisitorCounter] CountAPI unreachable, but GitHub API works.');
+                            })
+                            .catch(function(finalError) {
+                                els.forEach(function(el) {
+                                    el.textContent = 'Fetch blocked';
+                                });
+                                console.error('[VisitorCounter] All fetches blocked or failed:', error, demoError, finalError);
+                            });
                     });
             });
     } else {
