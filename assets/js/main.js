@@ -2,7 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     var els = document.querySelectorAll('#visitor-count');
     if (els.length > 0) {
-        fetch('https://api.countapi.xyz/update?namespace=kanika-visitors&key=global&amount=1')
+        els.forEach(function(el) {
+            el.textContent = 'Loading...';
+        });
+        // Use site URL as key for uniqueness
+        var siteKey = (window.location.hostname + window.location.pathname).replace(/[^a-zA-Z0-9]/g, '');
+        var namespace = 'kanika-visitors';
+        var key = siteKey || 'global';
+        fetch('https://api.countapi.xyz/update?namespace=' + namespace + '&key=' + key + '&amount=1')
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.json();
@@ -14,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(function(error) {
                 // Try to get the current value if update fails
-                fetch('https://api.countapi.xyz/get?namespace=kanika-visitors&key=global')
+                fetch('https://api.countapi.xyz/get?namespace=' + namespace + '&key=' + key)
                     .then(response => response.json())
                     .then(result => {
                         els.forEach(function(el) {
