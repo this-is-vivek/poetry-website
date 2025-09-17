@@ -10,7 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var namespace = 'kanika-visitors';
         var key = siteKey || 'global';
         console.log('[VisitorCounter] Using namespace:', namespace, 'key:', key);
-        fetch('https://api.countapi.xyz/update?namespace=' + namespace + '&key=' + key + '&amount=1')
+        // Add a timeout to the fetch request
+        function fetchWithTimeout(url, options, timeout = 5000) {
+            return Promise.race([
+                fetch(url, options),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), timeout))
+            ]);
+        }
+
+        fetchWithTimeout('https://api.countapi.xyz/update?namespace=' + namespace + '&key=' + key + '&amount=1')
             .then(response => {
                 console.log('[VisitorCounter] Update response status:', response.status);
                 if (!response.ok) throw new Error('Network response was not ok');
@@ -25,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(function(error) {
                 console.error('[VisitorCounter] Update failed:', error);
                 // Try public demo key as fallback
-                fetch('https://api.countapi.xyz/update?namespace=demo&key=demo&amount=1')
+                fetchWithTimeout('https://api.countapi.xyz/update?namespace=demo&key=demo&amount=1')
                     .then(response => response.json())
                     .then(result => {
                         els.forEach(function(el) {
