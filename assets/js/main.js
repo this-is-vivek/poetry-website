@@ -1,15 +1,25 @@
 // Visitor counter using CountAPI for global count
 document.addEventListener('DOMContentLoaded', function() {
-    var el = document.getElementById('visitor-count');
-    if (el) {
+    var els = document.querySelectorAll('#visitor-count');
+    if (els.length > 0) {
         fetch('https://api.countapi.xyz/update?namespace=kanika-visitors&key=global&amount=1')
-            .then(response => response.json())
-            .then(result => {
-                el.textContent = result.value;
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
             })
-            .catch(function() {
-                el.textContent = '0';
+            .then(result => {
+                els.forEach(function(el) {
+                    el.textContent = result.value;
+                });
+            })
+            .catch(function(error) {
+                els.forEach(function(el) {
+                    el.textContent = '0';
+                });
+                console.error('Visitor counter error:', error);
             });
+    } else {
+        console.warn('Visitor counter element not found');
     }
 });
 // Dynamically set poem background image from data-image attribute
