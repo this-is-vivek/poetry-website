@@ -3,7 +3,7 @@ layout: poem
 title: "গোধূলি পেরিয়ে"
 genre: nature
 date: 2025-09-08
-excerpt: "কটা তালকানা কোকিল ডেকে ওঠে"
+excerpt: "একটা তালকানা কোকিল ডেকে ওঠে"
 tags: [forest, trees, sanctuary, peace, solitude]
 background_image: "bataseporager.jpg"
 ---
