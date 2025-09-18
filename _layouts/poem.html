@@ -53,10 +53,20 @@ layout: default
                                 <button class="btn-print" onclick="printPoem()">Print</button>
                         </div>
 
-                        <!-- Like Button (Demo) -->
-                        <div style="margin: 2rem 0; text-align: center;">
-                                <span id="likebtn-wrapper"></span>
-                        </div>
+
+                                    <!-- LikeBtn.com BEGIN -->
+                                    <div style="margin: 2rem 0; text-align: center;">
+                                            <span class="likebtn-wrapper" data-identifier="{{ page.url }}" data-voting_enabled="true" data-voting_cancelable="false"></span>
+                                    </div>
+                                    <script>
+                                    (function(d,e,s){
+                                        if(d.getElementById("likebtn_wjs"))return;
+                                        a=d.createElement(e);m=d.getElementsByTagName(e)[0];
+                                        a.async=1;a.id="likebtn_wjs";a.src=s;
+                                        m.parentNode.insertBefore(a, m)
+                                    })(document,"script","//w.likebtn.com/js/w/widget.js");
+                                    </script>
+                                    <!-- LikeBtn.com END -->
 
                         <!-- CommentBox (Demo) -->
                         <div style="margin: 2rem 0;">
