@@ -48,10 +48,49 @@ layout: default
                                 {{ content }}
                         </div>
             
-            <div class="poem-actions">
-                <button class="btn-share" onclick="sharePoem()">Share Poem</button>
-                <button class="btn-print" onclick="printPoem()">Print</button>
-            </div>
+                        <div class="poem-actions">
+                                <button class="btn-share" onclick="sharePoem()">Share Poem</button>
+                                <button class="btn-print" onclick="printPoem()">Print</button>
+                        </div>
+
+                        <!-- Like Button (Demo) -->
+                        <div style="margin: 2rem 0; text-align: center;">
+                                <span id="likebtn-wrapper"></span>
+                        </div>
+
+                        <!-- CommentBox (Demo) -->
+                        <div style="margin: 2rem 0;">
+                                <div class="commentbox" id="commentbox-poem"></div>
+                        </div>
+
+                        <script src="https://w.likebtn.com/js/w.js"></script>
+                        <script>
+                            // LikeBtn demo widget
+                            window.LikeBtnInit = window.LikeBtnInit || [];
+                            window.LikeBtnInit.push({
+                                theme: 'custom',
+                                identifier: '{{ page.url }}',
+                                show_dislike: false,
+                                counter_show: true,
+                                counter_zero_show: true,
+                                i18n_like: 'Like',
+                                i18n_likes: 'Likes',
+                                i18n_dislike: 'Dislike',
+                                i18n_dislikes: 'Dislikes',
+                                i18n_you_like: 'You like this',
+                                i18n_you_dislike: 'You dislike this',
+                                i18n_popup: 'Like this poem?',
+                                element: 'likebtn-wrapper'
+                            });
+                        </script>
+
+                        <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+                        <script>
+                            commentBox('demo', {
+                                className: 'commentbox',
+                                defaultBoxId: 'commentbox-poem',
+                            });
+                        </script>
         </div>
     </div>
 </article>
