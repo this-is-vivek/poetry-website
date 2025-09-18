@@ -1,5 +1,17 @@
 <header class="site-header">
     <div class="wrapper">
+        <div class="scroll-message-panel" style="width: 100%; overflow: hidden; background: #fffbe6; border-bottom: 1px solid #ffe58f; margin-bottom: 0.5rem;">
+            <div style="white-space: nowrap; display: inline-block; animation: scroll-message 18s linear infinite; font-size: 1.3rem; color: #ad8b00; padding: 0.5rem 0;">
+                বিবেকানন্দ দাস-এর সৃষ্টির অচিন দেশে স্বাগত-।
+            </div>
+        </div>
+</header>
+<style>
+@keyframes scroll-message {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+</style>
         <div class="header-content">
             <div class="site-branding">
                 <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
