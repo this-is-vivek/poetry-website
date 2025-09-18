@@ -246,8 +246,7 @@ a:hover {
   text-align: center;
 }
 
-.hero-title {
-  font-size: 8rem;
+  font-size: 6rem;
   margin-bottom: 1rem;
   font-weight: 700;
   font-family: 'Kalpurush', 'Playfair Display', serif;
@@ -300,6 +299,12 @@ a:hover {
 
 .section-title {
   text-align: center;
+.hero-title {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: 'Kalpurush', 'Playfair Display', serif;
+}
   margin-bottom: 3rem;
   font-size: 2.5rem;
 }
