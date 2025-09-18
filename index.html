@@ -21,7 +21,22 @@ layout: default
             <a href="#featured-poems" class="btn btn-primary">Explore Poetry</a>
             <a href="{{ "/about/" | relative_url }}" class="btn btn-secondary">Meet the Author</a>
         </div>
-    </div>
+</section>
+
+<!-- Review Section with CommentBox -->
+<section class="review-section" style="margin-top: 3rem;">
+        <div class="wrapper">
+                <h2>Visitor Reviews</h2>
+                <div class="commentbox" id="commentbox"></div>
+        </div>
+</section>
+
+<script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<script>
+    commentBox('5640141347487744-proj', {
+        className: 'commentbox',
+    });
+</script>
 </section>
 
 <section class="genre-nav">
