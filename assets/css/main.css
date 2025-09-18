@@ -417,10 +417,19 @@ a:hover {
   backdrop-filter: blur(10px);
 }
 
+
+@font-face {
+  font-family: 'Kalpurush';
+  src: url('/assets/fonts/kalpurush.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .poem-title {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Kalpurush', 'Playfair Display', serif;
 }
 
 .poem-excerpt {
