@@ -4,7 +4,7 @@ title: "ভালোবাসা মানে"
 genre: romance
 date: 2025-09-18
 excerpt: "প্রেম শরীরী নয়"
-background_image: "sample-poem.jpg" 
+background_image: "bataseporager.jpg" 
 tags: [train, journey, midnight, story, travel]
 ---
 
