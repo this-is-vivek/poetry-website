@@ -56,46 +56,24 @@ layout: default
 
                                                 <!-- LikeBtn.com BEGIN -->
                                                 <div style="margin: 2rem 0; text-align: center;">
-                                                        <span class="likebtn-wrapper" data-identifier="{{ site.url }}{{ page.url }}" data-site_id="68cc09a46fd08b99645797b3"></span>
-                                                </div>
-                                                <script>
-                                                (function(d,e,s){
-                                                    if(d.getElementById("likebtn_wjs"))return;
-                                                    a=d.createElement(e);m=d.getElementsByTagName(e)[0];
-                                                    a.async=1;a.id="likebtn_wjs";a.src=s;
-                                                    m.parentNode.insertBefore(a, m)
-                                                })(document,"script","//w.likebtn.com/js/w/widget.js");
-                                                </script>
-                                                <!-- LikeBtn.com END -->
+                                                           <span class="likebtn-wrapper" data-identifier="{{ site.url }}{{ page.url }}" data-site_id="68cc09a46fd08b99645797b3"></span>
+                                                    </div>
+                                                    <script src="//w.likebtn.com/js/w/widget.js"></script>
 
                         <!-- CommentBox (Demo) -->
                                                 <div style="margin: 2rem 0;">
                                                         <div class="commentbox" id="commentbox-poem"></div>
                                                 </div>
 
-                                                <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-                                                <script>
-                                                      commentBox('30945e4a4b1ecce369b580afd610ddde', {
-                                                        className: 'commentbox',
-                                                        defaultBoxId: 'commentbox-poem',
-                                                    });
-                                                </script>
+                                                                                                <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+                                                                                                <script>
+                                                                                                            commentBox('30945e4a4b1ecce369b580afd610ddde', {
+                                                                                                                className: 'commentbox',
+                                                                                                                defaultBoxId: 'commentbox-poem',
+                                                                                                            });
+                                                                                                </script>
                             window.LikeBtnInit = window.LikeBtnInit || [];
-                            window.LikeBtnInit.push({
-                                theme: 'custom',
-                                identifier: '{{ page.url }}',
-                                show_dislike: false,
-                                counter_show: true,
-                                counter_zero_show: true,
-                                i18n_like: 'Like',
-                                i18n_likes: 'Likes',
-                                i18n_dislike: 'Dislike',
-                                i18n_dislikes: 'Dislikes',
-                                i18n_you_like: 'You like this',
-                                i18n_you_dislike: 'You dislike this',
-                                i18n_popup: 'Like this poem?',
-                                element: 'likebtn-wrapper'
-                            });
+                                // Removed incorrect LikeBtnInit code
                         </script>
 
                         <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
