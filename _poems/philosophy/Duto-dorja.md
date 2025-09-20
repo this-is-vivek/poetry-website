@@ -5,6 +5,7 @@ genre: philosophy
 date: 2025-09-11
 excerpt: "দুটোই দরজা যাতায়াতের"
 tags: [time, wisdom, present, life]
+background_image: "bataseporager.jpg"
 ---
 
 দুটো দরজা...
