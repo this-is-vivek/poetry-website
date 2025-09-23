@@ -308,7 +308,7 @@ a:hover {
 .poems-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 0.5rem 0; /* Minimum column gap */
+  gap: 0.5rem 1rem; /* Single line gap between columns */
   margin-bottom: 3rem;
 }
 
