@@ -312,10 +312,10 @@ a:hover {
   margin-bottom: 3rem;
 }
 
-.poem-card {
   background-color: var(--surface-color);
   border-radius: var(--border-radius);
   overflow: hidden;
+  min-height: 160px; /* Further reduced column height */
   box-shadow: var(--shadow);
   transition: var(--transition);
   border: 1px solid var(--border-color);
