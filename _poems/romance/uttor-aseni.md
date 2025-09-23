@@ -1,9 +1,9 @@
 ---
 layout: poem
-title: "সৃষ্টির থেকে দূরে সরে আছি"
+title: "উত্তর আসেনি"
 genre: romance
 date: 2025-09-16
-excerpt: "মৃত্যুকে করেছে মহীয়ান"
+excerpt: "পাঁজর জুড়ে শেষ পৌষের বাতাস"
 tags: [forest, trees, sanctuary, peace, solitude]
 background_image: "bataseporager.jpg"
 ---
