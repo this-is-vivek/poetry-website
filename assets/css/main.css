@@ -309,7 +309,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 0.5rem 0.5rem; /* Reduced column gap for tighter layout */
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
   background-color: var(--surface-color);
