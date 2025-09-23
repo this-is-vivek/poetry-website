@@ -480,10 +480,10 @@ a:hover {
 .poem-text {
   font-family: var(--font-display), 'Noto Sans Bengali', 'Kalpurush', 'Mukti Narrow', serif;
   font-size: 1.1rem;
-  line-height: 1.3; /* Further reduced for even tighter poem spacing */
+    line-height: 1.15; /* Reduced for tighter line gap */
   text-align: left;
-  margin-bottom: 3rem;
-  padding: 0.5rem 0.05rem;
+    margin-bottom: 2rem;
+    padding: 0.3rem 0.01rem;
   background-color: var(--surface-color);
   border-radius: var(--border-radius);
   border-left: 4px solid var(--secondary-color);
@@ -602,7 +602,7 @@ a:hover {
 .related-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+    gap: 0.2rem 0.05rem; /* Reduced column gap */
 }
 
 .related-grid .poem-card {
