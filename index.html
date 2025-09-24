@@ -2,6 +2,14 @@
 layout: default
 ---
 
+<nav class="main-nav" style="width:100%;margin-bottom:1.5rem;">
+    <div class="wrapper" style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+        <a href="{{ '/' | relative_url }}" class="nav-btn btn btn-primary">Home</a>
+        <a href="{{ '/genres/' | relative_url }}" class="nav-btn btn btn-primary">Genres</a>
+        <a href="{{ '/books/' | relative_url }}" class="nav-btn btn btn-primary">Books</a>
+        <a href="{{ '/about/' | relative_url }}" class="nav-btn btn btn-primary">About</a>
+    </div>
+</nav>
 <section class="announcement-section">
     <div class="wrapper" style="display: flex; align-items: flex-start; gap: 2rem;">
         <div class="announcement-box" style="flex: 1;">
