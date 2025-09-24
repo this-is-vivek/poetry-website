@@ -48,9 +48,10 @@ layout: default
                                 {{ content }}
                         </div>
             
-                        <div class="poem-actions">
-                                <button class="btn-share" onclick="sharePoem()">Share Poem</button>
-                                <button class="btn-print" onclick="printPoem()">Print</button>
+            <div class="poem-actions">
+                <a href="{{ '/' | relative_url }}" class="btn btn-primary" style="margin-right:0.5rem;">Home</a>
+                <button class="btn-share" onclick="sharePoem()">Share Poem</button>
+                <button class="btn-print" onclick="printPoem()">Print</button>
                         </div>
 
 
