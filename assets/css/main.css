@@ -479,7 +479,7 @@ a:hover {
 /* Bengali and Multi-language Text Support */
 .poem-text {
   font-family: var(--font-display), 'Noto Sans Bengali', 'Kalpurush', 'Mukti Narrow', serif;
-  font-size: 1.1rem;
+  font-size: 1.35rem; /* Enhanced font size for poem text */
   line-height: 0.75rem; /* Further reduced for even tighter line gap */
   text-align: left;
     margin-bottom: 2rem;
