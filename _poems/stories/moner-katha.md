@@ -2,7 +2,7 @@
 layout: poem
 title: "মনের কথা"
 genre: stories
-date: 2025-09-08
+date: 2025-10-14
 excerpt: "মন চলে সাথে সাথে "
 tags: [forest, trees, sanctuary, peace, solitude]
 background_image: "bataseporager.jpg"
